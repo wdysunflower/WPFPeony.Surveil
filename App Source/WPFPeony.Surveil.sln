@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFPeony.Surveil", "WPFPeony.Surveil\WPFPeony.Surveil.csproj", "{84872403-94EB-4FA3-A7ED-3E270BE7C670}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFPeony.Surveil.ViewModel", "WPFPeony.Surveil.ViewModel\WPFPeony.Surveil.ViewModel.csproj", "{73733E96-75DC-47DB-8C8F-9F7A4487F156}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84872403-94EB-4FA3-A7ED-3E270BE7C670}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84872403-94EB-4FA3-A7ED-3E270BE7C670}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84872403-94EB-4FA3-A7ED-3E270BE7C670}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84872403-94EB-4FA3-A7ED-3E270BE7C670}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73733E96-75DC-47DB-8C8F-9F7A4487F156}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73733E96-75DC-47DB-8C8F-9F7A4487F156}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73733E96-75DC-47DB-8C8F-9F7A4487F156}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73733E96-75DC-47DB-8C8F-9F7A4487F156}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
