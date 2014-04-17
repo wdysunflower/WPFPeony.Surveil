@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WPFPeony.Surveil.ViewModel</RootNamespace>
     <AssemblyName>WPFPeony.Surveil.ViewModel</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Xpf.Core.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -46,9 +48,28 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config\ThemeOperator.cs" />
+    <Compile Include="Base\UIBase\UIViewNameHelper.cs" />
+    <Compile Include="Config\SkinOperator.cs" />
+    <Compile Include="Base\DataBase\ConfigControl.cs" />
+    <Compile Include="Base\DataBase\ObjectControl.cs" />
+    <Compile Include="Base\DataBase\OperatorControl.cs" />
+    <Compile Include="LogControl\LoginOperator.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Base\UIBase\UIControlBase.cs" />
+    <Compile Include="Base\UIBase\UINavigateBase.cs" />
+    <Compile Include="Base\UIBase\UIPageBase.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\WPFPeony.Surveil.Model\WPFPeony.Surveil.Model.csproj">
+      <Project>{b9ef03ff-d05b-4fd4-a8e9-f90d819cb1dc}</Project>
+      <Name>WPFPeony.Surveil.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WPFPeony.Surveil.Util\WPFPeony.Surveil.Util.csproj">
+      <Project>{15ca3fa1-3b0b-450c-b6b3-e9edde5f8021}</Project>
+      <Name>WPFPeony.Surveil.Util</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

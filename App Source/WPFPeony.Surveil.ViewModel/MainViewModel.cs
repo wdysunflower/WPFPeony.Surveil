@@ -1,17 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using DevExpress.Xpf.Mvvm;
-
-namespace WPFPeony.Surveil.ViewModel
+﻿namespace WPFPeony.Surveil.ViewModel
 {
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : UINavigateBase
     {
-        private UIThemeOperator _uiThemeOper;
+        private SkinOperator _skinOper;
 
-        public UIThemeOperator UIThemeOper
+        public SkinOperator SkinOper
         {
-            get { return _uiThemeOper ?? (_uiThemeOper = new UIThemeOperator()); }
+            get { return _skinOper ?? (_skinOper = new SkinOperator()); }
+        }
+
+        private LoginOperator _loginOper;
+
+        public LoginOperator LoginOper
+        {
+            get { return _loginOper ?? (_loginOper = new LoginOperator { ParentNavigate = this }); }
+        }
+
+        protected override void OnViewLoaded()
+        {
+            Navigate(UIViewNameHelper.LoginView);
         }
     }
 }

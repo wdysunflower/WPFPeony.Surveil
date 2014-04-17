@@ -2,5 +2,16 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml">
-   
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/IcoSource/Xaml/WPFPeony.Surveil.xaml" />
+                <ResourceDictionary Source="/StyleSource/MetropolisDarkStyleDic.xaml" />
+                <ResourceDictionary Source="/StyleSource/MetropolisLightStyleDic.xaml" />
+                <ResourceDictionary Source="/StyleSource/NormalStyleDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+
 </Application>

@@ -2,36 +2,40 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
              xmlns:viewModel="clr-namespace:WPFPeony.Surveil.ViewModel;assembly=WPFPeony.Surveil.ViewModel"
              xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:navigation="http://schemas.devexpress.com/winfx/2008/xaml/windowsui/navigation"
+             xmlns:view="clr-namespace:WPFPeony.Surveil"
              Title="DXApplication"
-             Height="700"
-             Width="1100"
+             Height="350"
+             Width="700"
+             ResizeBorderThickness="5"
              ShowIcon="False"
              ShowTitle="False"
              SnapsToDevicePixels="True"
-             UseLayoutRounding="True">
+             UseLayoutRounding="True"
+             WindowStartupLocation="CenterScreen">
 
     <dx:DXWindow.DataContext>
         <viewModel:MainViewModel />
     </dx:DXWindow.DataContext>
 
+    <dxmvvm:Interaction.Triggers>
+        <dxmvvm:EventToCommand EventName="Loaded"
+                               Command="{Binding OnViewLoadedCommand}" />
+    </dxmvvm:Interaction.Triggers>
+
+    <dxmvvm:Interaction.Behaviors>
+        <navigation:FrameNavigationService Frame="{Binding ElementName=MyFrame}" />
+        <dx:DXSplashScreenService SplashScreenType="{x:Type view:WaitingScreen}" />
+    </dxmvvm:Interaction.Behaviors>
+    
     <dx:DXWindow.Resources>
 
     </dx:DXWindow.Resources>
 
     <Grid>
-        <dxe:ComboBoxEdit HorizontalAlignment="Left"
-                          VerticalAlignment="Top"
-                          Height="25"
-                          Width="200"
-                          DataContext="{Binding UIThemeOper}"
-                          ItemsSource="{Binding UIThemes}"
-                          DisplayMember="Theme.FullName"
-                          SelectedItem="{Binding CurrentTheme}"
-                          IsTextEditable="False" />
-
         <dxwui:NavigationFrame x:Name="MyFrame"
                                AnimationType="SlideHorizontal"
                                BackNavigationMode="Root" />
