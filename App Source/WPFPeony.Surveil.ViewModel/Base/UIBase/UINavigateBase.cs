@@ -7,6 +7,28 @@ namespace WPFPeony.Surveil.ViewModel
     {
         public UINavigateBase ParentNavigate { get; set; }
 
+        #region Member
+
+        private SplashScreenService _screenService;
+        protected SplashScreenService ScreenService
+        {
+            get { return _screenService ?? (_screenService = new SplashScreenService()); }
+        }
+
+        protected ISplashScreenService BaseScreenService
+        {
+            get { return ScreenService; }
+        }
+
+        private string _waitPrompt;
+        public string WaitPrompt
+        {
+            get { return _waitPrompt; }
+            set { SetProperty(ref _waitPrompt, value, () => WaitPrompt); }
+        }
+
+        #endregion
+
         #region Bingding Command
 
         ICommand _onViewLoadedCommand;
@@ -50,7 +72,7 @@ namespace WPFPeony.Surveil.ViewModel
                     parent = parent.ParentNavigate;
                 }
             }
-            if (service != null) 
+            if (service != null)
                 service.Navigate(target, null, this);
         }
 

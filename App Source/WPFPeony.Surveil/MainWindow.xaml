@@ -16,7 +16,7 @@
              SnapsToDevicePixels="True"
              UseLayoutRounding="True"
              WindowStartupLocation="CenterScreen">
-
+    
     <dx:DXWindow.DataContext>
         <viewModel:MainViewModel />
     </dx:DXWindow.DataContext>
@@ -28,9 +28,8 @@
 
     <dxmvvm:Interaction.Behaviors>
         <navigation:FrameNavigationService Frame="{Binding ElementName=MyFrame}" />
-        <dx:DXSplashScreenService SplashScreenType="{x:Type view:WaitingScreen}" />
     </dxmvvm:Interaction.Behaviors>
-    
+
     <dx:DXWindow.Resources>
 
     </dx:DXWindow.Resources>

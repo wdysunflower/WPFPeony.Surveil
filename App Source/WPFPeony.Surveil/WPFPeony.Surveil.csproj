@@ -66,15 +66,24 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ComView\WaitScreen.xaml.cs">
+      <DependentUpon>WaitScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayBack\PlayBackView.xaml.cs">
+      <DependentUpon>PlayBackView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RealTime\RealTimeView.xaml.cs">
+      <DependentUpon>RealTimeView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComView\DXSplashScreen\WaitingScreen.xaml.cs">
-      <DependentUpon>WaitingScreen.xaml</DependentUpon>
+    <Compile Include="Main\LoginScreen.xaml.cs">
+      <DependentUpon>LoginScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainView\LoginView.xaml.cs">
+    <Compile Include="Main\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainView\SurveilView.xaml.cs">
+    <Compile Include="Main\SurveilView.xaml.cs">
       <DependentUpon>SurveilView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -106,25 +115,42 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ComView\DXSplashScreen\WaitingScreen.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="IcoSource\Xaml\WPFPeony.Surveil.xaml">
+    <Page Include="..\..\Metro Source\Export\WPFPeony.Surveil.xaml">
+      <Link>IcoSource\Xaml\WPFPeony.Surveil.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainView\LoginView.xaml">
+    <Page Include="ComView\WaitScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainView\SurveilView.xaml">
+    <Page Include="Main\LoginScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Main\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Main\SurveilView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PlayBack\PlayBackView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RealTime\RealTimeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StyleSource\DataTemplateDic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StyleSource\MetropolisDarkStyleDic.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -134,7 +160,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="StyleSource\NormalStyleDictionary.xaml">
+    <Page Include="StyleSource\NormalStyleDic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

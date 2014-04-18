@@ -1,11 +1,14 @@
 ﻿<UserControl x:Class="WPFPeony.Surveil.MainControl.LoginView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol">
+             xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+             xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+             xmlns:view="clr-namespace:WPFPeony.Surveil"
+             x:Name="LoginView_UC"
+             DataContext="{Binding LoginOper}">
 
     <Grid VerticalAlignment="Center"
-          Background="#659D9D9D"
-          DataContext="{Binding LoginOper}">
+          Background="#659D9D9D">
         <dxlc:LayoutControl Orientation="Vertical"
                             HorizontalAlignment="Center"
                             Padding="0"
@@ -67,10 +70,14 @@
                 <Button Padding="0"
                         HorizontalAlignment="Right"
                         Content="{DynamicResource Login-Door}"
-                        Command="{Binding LoginCmd}"/>
+                        Command="{Binding LoginCmd}" 
+                        IsDefault="True"/>
                 <Button Padding="0"
                         HorizontalAlignment="Right"
-                        Content="{DynamicResource Login-Arrow}" />
+                        Content="{DynamicResource Login-Arrow}"
+                        Command="{Binding CancleCmd}"
+                        CommandParameter="{Binding ElementName=LoginView_UC}"
+                        IsCancel="True"/>
             </dxlc:LayoutGroup>
         </dxlc:LayoutControl>
     </Grid>

@@ -9,7 +9,7 @@ using WPFPeony.Surveil.Util;
 
 namespace WPFPeony.Surveil.ViewModel
 {
-    public class UIControlBase : BindableBase
+    public class UIDataBase : BindableBase
     {
         public string ControlHandle { get; set; }
 

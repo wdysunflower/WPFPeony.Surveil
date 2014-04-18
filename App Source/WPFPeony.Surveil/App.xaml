@@ -9,7 +9,8 @@
                 <ResourceDictionary Source="/IcoSource/Xaml/WPFPeony.Surveil.xaml" />
                 <ResourceDictionary Source="/StyleSource/MetropolisDarkStyleDic.xaml" />
                 <ResourceDictionary Source="/StyleSource/MetropolisLightStyleDic.xaml" />
-                <ResourceDictionary Source="/StyleSource/NormalStyleDictionary.xaml" />
+                <ResourceDictionary Source="/StyleSource/NormalStyleDic.xaml" />
+                <ResourceDictionary Source="/StyleSource/DataTemplateDic.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

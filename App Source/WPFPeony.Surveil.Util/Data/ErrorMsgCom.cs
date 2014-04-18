@@ -39,7 +39,7 @@ namespace WPFPeony.Surveil.Util
         {
             string enumName = Enum.GetName(type, value);
             if (String.IsNullOrEmpty(enumName))
-                _errorStr = ResourceCom.GetString("NoDefineError") + value.ToString();
+                _errorStr = ResourceCom.GetString("NoDefineError") + value;
             else
                 _errorStr = ResourceCom.GetString(enumName);
         }

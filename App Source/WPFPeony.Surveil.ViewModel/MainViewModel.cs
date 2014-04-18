@@ -2,12 +2,7 @@
 {
     public class MainViewModel : UINavigateBase
     {
-        private SkinOperator _skinOper;
-
-        public SkinOperator SkinOper
-        {
-            get { return _skinOper ?? (_skinOper = new SkinOperator()); }
-        }
+        #region Binding Property
 
         private LoginOperator _loginOper;
 
@@ -16,9 +11,22 @@
             get { return _loginOper ?? (_loginOper = new LoginOperator { ParentNavigate = this }); }
         }
 
+        private SurveilOperator _surveilOper;
+
+        public SurveilOperator SurveilOper
+        {
+            get { return _surveilOper ?? (_surveilOper = new SurveilOperator { ParentNavigate = this }); }
+        }
+
+        #endregion
+
+        #region Override
+
         protected override void OnViewLoaded()
         {
             Navigate(UIViewNameHelper.LoginView);
         }
+
+        #endregion
     }
 }

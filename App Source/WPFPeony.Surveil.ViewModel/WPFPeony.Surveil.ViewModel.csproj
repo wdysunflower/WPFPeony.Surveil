@@ -49,16 +49,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\UIBase\UIViewNameHelper.cs" />
-    <Compile Include="Config\SkinOperator.cs" />
-    <Compile Include="Base\DataBase\ConfigControl.cs" />
-    <Compile Include="Base\DataBase\ObjectControl.cs" />
-    <Compile Include="Base\DataBase\OperatorControl.cs" />
-    <Compile Include="LogControl\LoginOperator.cs" />
+    <Compile Include="Main\LoginOperator.cs" />
     <Compile Include="MainViewModel.cs" />
+    <Compile Include="Main\SurveilOperator.cs" />
+    <Compile Include="PlayBack\PlayBackOperator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Base\UIBase\UIControlBase.cs" />
+    <Compile Include="Base\DataBase\UIDataBase.cs" />
     <Compile Include="Base\UIBase\UINavigateBase.cs" />
     <Compile Include="Base\UIBase\UIPageBase.cs" />
+    <Compile Include="RealTime\RealTimeOperator.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
