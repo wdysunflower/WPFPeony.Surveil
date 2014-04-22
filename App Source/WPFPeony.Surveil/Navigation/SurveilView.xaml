@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="WPFPeony.Surveil.SurveilView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
+             DataContext="{Binding SurveilOper}">
+
+    <dxlc:LayoutControl Orientation="Vertical">
+        <dxwui:PageAdornerControl Header="功能模块"
+                                  VerticalAlignment="Top"
+                                  HorizontalAlignment="Left"
+                                  BackCommand="{Binding LogoutCmd}" />
+
+        <dxlc:TileLayoutControl Orientation="Horizontal"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                ItemSpace="50"
+                                AllowItemMoving="False">
+            <dxlc:Tile x:Name="RealTime"
+                       Command="{Binding ModuleChooseCmd}"
+                       CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
+                       Background="{DynamicResource TileBackBrush}"
+                       Size="Large"
+                       ContentChangeInterval="00:00:03.00">
+                <dxlc:Tile.ContentSource>
+                    <dx:FrameworkElements>
+                        <ContentControl Content="{DynamicResource CCTV-Camera}" />
+                        <TextBlock FontSize="32"
+                                   FontFamily="微软雅黑"
+                                   FontWeight="Bold"
+                                   Text="实时监控"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center" />
+                    </dx:FrameworkElements>
+                </dxlc:Tile.ContentSource>
+            </dxlc:Tile>
+
+            <dxlc:Tile x:Name="PlayBack"
+                       Command="{Binding ModuleChooseCmd}"
+                       CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
+                       Background="{DynamicResource TileBackBrush}"
+                       Size="Large"
+                       ContentChangeInterval="00:00:03.00">
+                <dxlc:Tile.ContentSource>
+                    <dx:FrameworkElements>
+                        <ContentControl Content="{DynamicResource Film-Reel}" />
+                        <TextBlock FontSize="32"
+                                   FontFamily="微软雅黑"
+                                   FontWeight="Bold"
+                                   Text="录像审看"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center" />
+                    </dx:FrameworkElements>
+                </dxlc:Tile.ContentSource>
+            </dxlc:Tile>
+
+        </dxlc:TileLayoutControl>
+    </dxlc:LayoutControl>
+</UserControl>

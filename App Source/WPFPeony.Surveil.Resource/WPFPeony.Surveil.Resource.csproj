@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{396BC550-AE8B-4ED3-8596-86C1A02FEB3F}</ProjectGuid>
+    <ProjectGuid>{78075F49-9A33-4CF3-8580-C8474B2E0569}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WPFPeony.Surveil.Custom</RootNamespace>
-    <AssemblyName>WPFPeony.Surveil.Custom</AssemblyName>
+    <RootNamespace>WPFPeony.Surveil.Resource</RootNamespace>
+    <AssemblyName>WPFPeony.Surveil.Resource</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
@@ -50,6 +50,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.ExpressApp.Xpo.v13.2">
       <SpecificVersion>False</SpecificVersion>
@@ -70,6 +73,8 @@
     <Reference Include="DevExpress.Persistent.BaseImpl.v13.2">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.Xpf.Controls.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Core.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpo.v13.2">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -99,14 +104,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Panel\RadialPanel.cs" />
-    <Compile Include="Panel\RectanglePanel.cs" />
-    <Compile Include="Panel\RoundPanel.cs" />
-    <Compile Include="Panel\ViewPanel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VideoWin\AirspaceDecorator.cs" />
-    <Compile Include="VideoWin\AirspaceAdorner.cs" />
-    <Compile Include="VideoWin\Win32Hwnd.cs" />
+    <Compile Include="ThemeUtil\ThemeBrushKey.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -126,10 +125,23 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WPFPeony.Surveil.Util\WPFPeony.Surveil.Util.csproj">
-      <Project>{15ca3fa1-3b0b-450c-b6b3-e9edde5f8021}</Project>
-      <Name>WPFPeony.Surveil.Util</Name>
-    </ProjectReference>
+    <Page Include="..\..\metro source\export\WPFPeony.Surveil.xaml">
+      <Link>IcoSource\Xaml\WPFPeony.Surveil.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Theme\CustomDataDic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Theme\ThemeDic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

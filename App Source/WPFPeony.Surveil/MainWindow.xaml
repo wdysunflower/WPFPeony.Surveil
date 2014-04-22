@@ -6,17 +6,20 @@
              xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
              xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
              xmlns:navigation="http://schemas.devexpress.com/winfx/2008/xaml/windowsui/navigation"
-             xmlns:view="clr-namespace:WPFPeony.Surveil"
+             xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
              Title="DXApplication"
-             Height="350"
-             Width="700"
+             MinWidth="920"
+             MinHeight="450"
+             Width="920"
+             Height="450"
              ResizeBorderThickness="5"
              ShowIcon="False"
              ShowTitle="False"
              SnapsToDevicePixels="True"
              UseLayoutRounding="True"
-             WindowStartupLocation="CenterScreen">
-    
+             WindowStartupLocation="CenterScreen"
+             WindowState="Maximized">
+
     <dx:DXWindow.DataContext>
         <viewModel:MainViewModel />
     </dx:DXWindow.DataContext>
@@ -35,8 +38,16 @@
     </dx:DXWindow.Resources>
 
     <Grid>
-        <dxwui:NavigationFrame x:Name="MyFrame"
-                               AnimationType="SlideHorizontal"
-                               BackNavigationMode="Root" />
+        <dxlc:LayoutControl Orientation="Vertical"
+                            Margin="0,-26,0,0">
+            <dxwui:NavigationFrame x:Name="MyFrame"
+                                   AnimationType="SlideHorizontal"
+                                   BackNavigationMode="Root" />
+
+            <dxlc:LayoutGroup VerticalAlignment="Bottom">
+                <TextBlock Text="当前状态：在线" />
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutControl>
     </Grid>
+
 </dx:DXWindow>

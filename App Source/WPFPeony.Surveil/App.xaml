@@ -6,11 +6,11 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/IcoSource/Xaml/WPFPeony.Surveil.xaml" />
-                <ResourceDictionary Source="/StyleSource/MetropolisDarkStyleDic.xaml" />
-                <ResourceDictionary Source="/StyleSource/MetropolisLightStyleDic.xaml" />
                 <ResourceDictionary Source="/StyleSource/NormalStyleDic.xaml" />
                 <ResourceDictionary Source="/StyleSource/DataTemplateDic.xaml" />
+                <ResourceDictionary Source="/WPFPeony.Surveil.Resource;component/IcoSource/Xaml/WPFPeony.Surveil.xaml" />
+                <ResourceDictionary Source="/WPFPeony.Surveil.Resource;component/Theme/CustomDataDic.xaml" />
+                <ResourceDictionary Source="/WPFPeony.Surveil.Resource;component/Theme/ThemeDic.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -43,8 +43,10 @@
     <Reference Include="DevExpress.Printing.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Controls.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Core.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Docking.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Layout.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.LayoutControl.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.NavBar.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -66,24 +68,36 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataView\EntityTreeCtl.xaml.cs">
+      <DependentUpon>EntityTreeCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ComView\WaitScreen.xaml.cs">
       <DependentUpon>WaitScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PlayBack\PlayBackView.xaml.cs">
+    <Compile Include="DataView\ToolBarCtl.xaml.cs">
+      <DependentUpon>ToolBarCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\PlayBackView.xaml.cs">
       <DependentUpon>PlayBackView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RealTime\RealTimeView.xaml.cs">
+    <Compile Include="Navigation\RealTimeView.xaml.cs">
       <DependentUpon>RealTimeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VideoPreview\VideoWin.xaml.cs">
+      <DependentUpon>VideoWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VideoPreview\VideoViewCtl.xaml.cs">
+      <DependentUpon>VideoViewCtl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main\LoginScreen.xaml.cs">
+    <Compile Include="ComView\LoginScreen.xaml.cs">
       <DependentUpon>LoginScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Main\LoginView.xaml.cs">
+    <Compile Include="Navigation\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Main\SurveilView.xaml.cs">
+    <Compile Include="Navigation\SurveilView.xaml.cs">
       <DependentUpon>SurveilView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -115,24 +129,27 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="..\..\Metro Source\Export\WPFPeony.Surveil.xaml">
-      <Link>IcoSource\Xaml\WPFPeony.Surveil.xaml</Link>
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="DataView\EntityTreeCtl.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ComView\WaitScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Main\LoginScreen.xaml">
+    <Page Include="ComView\LoginScreen.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Main\LoginView.xaml">
+    <Page Include="DataView\ToolBarCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Main\SurveilView.xaml">
+    <Page Include="Navigation\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Navigation\SurveilView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,11 +157,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="PlayBack\PlayBackView.xaml">
+    <Page Include="Navigation\PlayBackView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RealTime\RealTimeView.xaml">
+    <Page Include="Navigation\RealTimeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,28 +169,38 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StyleSource\MetropolisDarkStyleDic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="StyleSource\MetropolisLightStyleDic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="StyleSource\NormalStyleDic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VideoPreview\VideoWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VideoPreview\VideoViewCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WPFPeony.Surveil.Custom\WPFPeony.Surveil.Custom.csproj">
+      <Project>{396bc550-ae8b-4ed3-8596-86c1a02feb3f}</Project>
+      <Name>WPFPeony.Surveil.Custom</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WPFPeony.Surveil.Resource\WPFPeony.Surveil.Resource.csproj">
+      <Project>{78075f49-9a33-4cf3-8580-c8474b2e0569}</Project>
+      <Name>WPFPeony.Surveil.Resource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WPFPeony.Surveil.Util\WPFPeony.Surveil.Util.csproj">
+      <Project>{15ca3fa1-3b0b-450c-b6b3-e9edde5f8021}</Project>
+      <Name>WPFPeony.Surveil.Util</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WPFPeony.Surveil.ViewModel\WPFPeony.Surveil.ViewModel.csproj">
       <Project>{73733E96-75DC-47DB-8C8F-9F7A4487F156}</Project>
       <Name>WPFPeony.Surveil.ViewModel</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="IcoSource\Image\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:resource="clr-namespace:WPFPeony.Surveil.Resource">
+
+    <Brush x:Key="{resource:ThemeBrushKey ResourceKey=ContentBorder}">#FF515151</Brush>
+    <Brush x:Key="{resource:ThemeBrushKey ResourceKey=ContentBack}">#FF333333</Brush>
+    <Brush x:Key="{resource:ThemeBrushKey ResourceKey=ContentOverBorder}">#FF666666</Brush>
+    <Brush x:Key="{resource:ThemeBrushKey ResourceKey=ContentSelectedBorder}">#FFF78A09</Brush>
+    <Brush x:Key="{resource:ThemeBrushKey ResourceKey=ContentInactiveBorder}">#FF666666</Brush>
+
+    <Brush x:Key="TileBackBrush">#272727</Brush>
+
+    <Grid x:Key="TestGrid"
+          Background="#272727"></Grid>
+</ResourceDictionary>
+

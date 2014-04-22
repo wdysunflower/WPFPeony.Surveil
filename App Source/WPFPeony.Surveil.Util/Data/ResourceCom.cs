@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace WPFPeony.Surveil.Util
@@ -55,6 +56,16 @@ namespace WPFPeony.Surveil.Util
         public static ImageSource GetImageSource(string key)
         {
             return GetObject(key) as ImageSource;
+        }
+
+        /// <summary>
+        /// 获取Viewbox类型资源
+        /// </summary>
+        /// <param name="key">Key值</param>
+        /// <returns>Value值</returns>
+        public static Viewbox GetViewbox(string key)
+        {
+            return GetObject(key) as Viewbox;
         }
     }
 }

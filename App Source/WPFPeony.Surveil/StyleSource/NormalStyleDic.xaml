@@ -1,4 +1,21 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol">
+
+    <Style TargetType="{x:Type TreeViewItem}">
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+    </Style>
+
+    <Style TargetType="{x:Type dxlc:LayoutControl}">
+        <Setter Property="Padding"
+                Value="0" />
+    </Style>
+
+    <Style TargetType="{x:Type dxlc:GroupBox}">
+        <Setter Property="Margin"
+                Value="0" />
+        <Setter Property="Padding"
+                Value="0" />
+    </Style>
 </ResourceDictionary>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Xml.Serialization;
@@ -12,6 +13,8 @@ namespace WPFPeony.Surveil.ViewModel
     public class UIDataBase : BindableBase
     {
         public string ControlHandle { get; set; }
+
+        public object RelationData { get; set; }
 
         #region 界面展现
 
@@ -90,6 +93,39 @@ namespace WPFPeony.Surveil.ViewModel
         {
             get { return _controlImageKey; }
             set { _controlImageKey = value; }
+        }
+
+        #endregion
+
+        #region ControlView
+
+        /// <summary>
+        /// 图片
+        /// </summary>
+        [NonSerialized]
+        private Viewbox _controlView;
+        [XmlIgnore]
+        public Viewbox ControlView
+        {
+            get
+            {
+                return !String.IsNullOrEmpty(_controlViewKey) ?
+                    ResourceCom.GetViewbox(_controlViewKey) : _controlView;
+            }
+            set
+            {
+                _controlViewKey = null;
+                SetProperty(ref _controlView, value, () => ControlView);
+            }
+        }
+
+        [NonSerialized]
+        private string _controlViewKey;
+        [XmlIgnore]
+        public string ControlViewKey
+        {
+            get { return _controlViewKey; }
+            set { _controlViewKey = value; }
         }
 
         #endregion
