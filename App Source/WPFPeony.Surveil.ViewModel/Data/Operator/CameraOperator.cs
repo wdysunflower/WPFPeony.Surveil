@@ -13,7 +13,6 @@
 
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using DevExpress.Xpf.Mvvm;
 using WPFPeony.Surveil.Model;
 
 namespace WPFPeony.Surveil.ViewModel
@@ -21,7 +20,7 @@ namespace WPFPeony.Surveil.ViewModel
     /// <summary>
     /// Class CameraOperator.
     /// </summary>
-    public class CameraOperator : ViewModelBase
+    public class CameraOperator : OperatorBase
     {
         #region Member
 
@@ -66,21 +65,6 @@ namespace WPFPeony.Surveil.ViewModel
         #region Binding Property
 
         /// <summary>
-        /// The _camera col
-        /// </summary>
-        private ObservableCollection<DataBase> _cameraCol;
-
-        /// <summary>
-        /// Gets or sets the camera col.
-        /// </summary>
-        /// <value>The camera col.</value>
-        public ObservableCollection<DataBase> CameraCol
-        {
-            get { return _cameraCol; }
-            set { SetProperty(ref _cameraCol, value, () => CameraCol); }
-        }
-
-        /// <summary>
         /// The _selected col
         /// </summary>
         private object _selectedCol;
@@ -105,15 +89,14 @@ namespace WPFPeony.Surveil.ViewModel
             switch (_dataUIMode)
             {
                 case DataUIModes.TreeView:
-                    CameraCol = CreateCameraColWithTree(_dataAssist.DataDic.Values);
+                    ObservableCol = CreateCameraColWithTree(_dataAssist.DataDic.Values);
                     break;
                 case DataUIModes.TreeListView:
-                    CameraCol = CreateCameraColWithTreeList(_dataAssist.DataDic.Values);
+                    ObservableCol = CreateCameraColWithTreeList(_dataAssist.DataDic.Values);
                     break;
             }
 
-            var col = new ObservableCollection<DataBase>();
-            col.Add(CameraCol[0]);
+            var col = new ObservableCollection<UIBindBase> {ObservableCol[0]};
             _selectedCol = col;
         }
 
@@ -122,11 +105,11 @@ namespace WPFPeony.Surveil.ViewModel
         /// </summary>
         /// <param name="dataBases">The entities.</param>
         /// <returns>ObservableCollection&lt;DataBase&gt;.</returns>
-        public ObservableCollection<DataBase> CreateCameraColWithTree(IEnumerable<MDataBase> dataBases)
+        public ObservableCollection<UIBindBase> CreateCameraColWithTree(IEnumerable<MDataBase> dataBases)
         {
             _cameraDic.Clear();
 
-            var cameraCol = new ObservableCollection<DataBase>();
+            var cameraCol = new ObservableCollection<UIBindBase>();
             foreach (MDataBase data in dataBases)
             {
                 var vmData = new DataBase(data) {IsExpanded = true};
@@ -136,7 +119,7 @@ namespace WPFPeony.Surveil.ViewModel
                 {
                     DataBase parentData;
                     if (_cameraDic.TryGetValue(data.ParentID, out parentData))
-                        parentData.ChildCol.Add(vmData);
+                        parentData.ObservableCol.Add(vmData);
                 }
 
                 _cameraDic.Add(data.ID, vmData);
@@ -150,11 +133,11 @@ namespace WPFPeony.Surveil.ViewModel
         /// </summary>
         /// <param name="dataBases">The entities.</param>
         /// <returns>ObservableCollection&lt;DataBase&gt;.</returns>
-        public ObservableCollection<DataBase> CreateCameraColWithTreeList(IEnumerable<MDataBase> dataBases)
+        public ObservableCollection<UIBindBase> CreateCameraColWithTreeList(IEnumerable<MDataBase> dataBases)
         {
             _cameraDic.Clear();
 
-            var cameraCol = new ObservableCollection<DataBase>();
+            var cameraCol = new ObservableCollection<UIBindBase>();
             foreach (MDataBase data in dataBases)
             {
                 var vmData = new DataBase(data) {IsExpanded = true};

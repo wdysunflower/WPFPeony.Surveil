@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="WPFPeony.Surveil.ToolBarCtl"
+﻿<UserControl x:Class="WPFPeony.Surveil.VideoViewBarCtl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
              xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm">
 
     <Border HorizontalAlignment="Right"
-            DataContext="{Binding VideoViewOper}">
+            DataContext="{Binding VideoView}">
         <dx:RadioButtonList x:Name="ButtonList"
                             BorderThickness="0"
                             SelectedIndex="1"

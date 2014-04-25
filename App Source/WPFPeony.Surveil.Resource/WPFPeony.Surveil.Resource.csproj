@@ -125,6 +125,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="..\..\Metro Source\Export\WPFPeony.Surveil.Small.xaml">
+      <Link>IcoSource\Xaml\WPFPeony.Surveil.Small.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="..\..\metro source\export\WPFPeony.Surveil.xaml">
       <Link>IcoSource\Xaml\WPFPeony.Surveil.xaml</Link>
       <Generator>MSBuild:Compile</Generator>

@@ -155,7 +155,7 @@ namespace WPFPeony.Surveil.ViewModel
                 UINavigateBase parent = ParentNavigate;
                 while (service == null && parent != null)
                 {
-                    service = ParentNavigate.NavigationService;
+                    service = parent.NavigationService;
                     parent = parent.ParentNavigate;
                 }
             }

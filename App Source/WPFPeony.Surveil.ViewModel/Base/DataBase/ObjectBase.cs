@@ -1,35 +1,37 @@
 ﻿// ***********************************************************************
-// <copyright file="UIPageBase.cs" company="Peony">
+// <copyright file="ObjectBase.cs" company="Peony">
 //     Copyright (c) Peony. All rights reserved.
 // </copyright>
 // ***********************************************************************
 // Assembly         : WPFPeony.Surveil.ViewModel
 // Author           : wdysunflower
-// Created          : 04-17-2014
+// Created          : 04-25-2014
 //
 // Last Modified By : wdysunflower
-// Last Modified On : 04-17-2014
+// Last Modified On : 04-25-2014
 // ***********************************************************************
 
-using DevExpress.Xpf.Mvvm;
+using System.Collections.ObjectModel;
 
 namespace WPFPeony.Surveil.ViewModel
 {
     /// <summary>
-    /// Class UIPageBase.
+    /// Class ObjectBase.
     /// </summary>
-    public class UIPageBase : BindableBase
+    public class ObjectBase : UIBindBase
     {
         /// <summary>
-        /// 模块名称
+        /// The _observable col
         /// </summary>
-        /// <value>The name of the module.</value>
-        public string ModuleName { get; protected set; }
+        private ObservableCollection<UIBindBase> _observableCol;
 
         /// <summary>
-        /// Gets or sets the relative object.
+        /// Gets the observable col.
         /// </summary>
-        /// <value>The relative object.</value>
-        public object RelativeObject { get; protected set; }
+        /// <value>The observable col.</value>
+        public ObservableCollection<UIBindBase> ObservableCol
+        {
+            get { return _observableCol ?? (_observableCol = new ObservableCollection<UIBindBase>()); }
+        }
     }
 }

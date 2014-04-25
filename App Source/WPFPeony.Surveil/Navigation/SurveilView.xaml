@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-             xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
-             DataContext="{Binding SurveilOper}">
+             xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui">
 
-    <dxlc:LayoutControl Orientation="Vertical">
+    <dxlc:LayoutControl Orientation="Vertical"
+                        DataContext="{Binding Surveil}">
         <dxwui:PageAdornerControl Header="功能模块"
                                   VerticalAlignment="Top"
                                   HorizontalAlignment="Left"

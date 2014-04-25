@@ -2,13 +2,14 @@
 // <copyright file="SurveilOperator.cs" company="Peony">
 //     Copyright (c) Peony. All rights reserved.
 // </copyright>
+// <summary></summary>
 // ***********************************************************************
 // Assembly         : WPFPeony.Surveil.ViewModel
 // Author           : wdysunflower
 // Created          : 04-18-2014
 //
 // Last Modified By : wdysunflower
-// Last Modified On : 04-22-2014
+// Last Modified On : 04-25-2014
 // ***********************************************************************
 
 using System.Threading;
@@ -19,38 +20,38 @@ using DevExpress.Xpf.Mvvm;
 namespace WPFPeony.Surveil.ViewModel
 {
     /// <summary>
-    /// Class SurveilOperator.
+    /// Class SurveilManage.
     /// </summary>
-    public class SurveilOperator : UINavigateBase
+    public class SurveilManage : UINavigateBase
     {
         #region Binding Property
 
         /// <summary>
-        /// The _real time oper
+        /// The _real time
         /// </summary>
-        private RealTimeOperator _realTimeOper;
+        private RealTimeManage _realTime;
 
         /// <summary>
-        /// Gets the real time oper.
+        /// Gets the real time.
         /// </summary>
-        /// <value>The real time oper.</value>
-        public RealTimeOperator RealTimeOper
+        /// <value>The real time.</value>
+        public RealTimeManage RealTime
         {
-            get { return _realTimeOper ?? (_realTimeOper = new RealTimeOperator()); }
+            get { return _realTime ?? (_realTime = new RealTimeManage {ParentNavigate = this}); }
         }
 
         /// <summary>
-        /// The _play back oper
+        /// The _play back
         /// </summary>
-        private PlayBackOperator _playBackOper;
+        private PlayBackManage _playBack;
 
         /// <summary>
-        /// Gets the play back oper.
+        /// Gets the play back.
         /// </summary>
-        /// <value>The play back oper.</value>
-        public PlayBackOperator PlayBackOper
+        /// <value>The play back.</value>
+        public PlayBackManage PlayBack
         {
-            get { return _playBackOper ?? (_playBackOper = new PlayBackOperator()); }
+            get { return _playBack ?? (_playBack = new PlayBackManage {ParentNavigate = this}); }
         }
 
         #endregion
@@ -121,35 +122,6 @@ namespace WPFPeony.Surveil.ViewModel
             if ((string) dependency.GetValue(FrameworkElement.NameProperty) == "PlayBack")
                 Navigate(UIViewNameHelper.PlayBackView);
 
-            BaseScreenService.HideSplashScreen();
-        }
-
-        #endregion
-
-        #region ModuleExitCmd
-
-        /// <summary>
-        /// The _module exit command
-        /// </summary>
-        private ICommand _moduleExitCmd;
-
-        /// <summary>
-        /// Gets the module exit command.
-        /// </summary>
-        /// <value>The module exit command.</value>
-        public ICommand ModuleExitCmd
-        {
-            get { return _moduleExitCmd ?? (_moduleExitCmd = new DelegateCommand(OnModuleExitCmd)); }
-        }
-
-        /// <summary>
-        /// Called when [module exit command].
-        /// </summary>
-        private void OnModuleExitCmd()
-        {
-            BaseScreenService.ShowSplashScreen(UIViewNameHelper.WaitScreen);
-            Thread.Sleep(1000);
-            Navigate(UIViewNameHelper.SurveilView);
             BaseScreenService.HideSplashScreen();
         }
 

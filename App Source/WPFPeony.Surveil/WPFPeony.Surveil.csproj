@@ -78,14 +78,17 @@
     <Compile Include="ComView\WaitScreen.xaml.cs">
       <DependentUpon>WaitScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataView\DataManageBarCtl.xaml.cs">
+      <DependentUpon>DataManageBarCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataView\RecordDataCtl.xaml.cs">
       <DependentUpon>RecordDataCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataView\RecordSearchCtl.xaml.cs">
       <DependentUpon>RecordSearchCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataView\ToolBarCtl.xaml.cs">
-      <DependentUpon>ToolBarCtl.xaml</DependentUpon>
+    <Compile Include="VideoPreview\VideoViewBarCtl.xaml.cs">
+      <DependentUpon>VideoViewBarCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Navigation\PlayBackView.xaml.cs">
       <DependentUpon>PlayBackView.xaml</DependentUpon>
@@ -154,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DataView\DataManageBarCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DataView\RecordDataCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,7 +169,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DataView\ToolBarCtl.xaml">
+    <Page Include="VideoPreview\VideoViewBarCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

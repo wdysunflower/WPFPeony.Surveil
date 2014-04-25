@@ -3,11 +3,11 @@
 namespace WPFPeony.Surveil
 {
     /// <summary>
-    /// ToolBarCtl.xaml 的交互逻辑
+    /// VideoViewBarCtl.xaml 的交互逻辑
     /// </summary>
-    public partial class ToolBarCtl : UserControl
+    public partial class VideoViewBarCtl : UserControl
     {
-        public ToolBarCtl()
+        public VideoViewBarCtl()
         {
             InitializeComponent();
         }

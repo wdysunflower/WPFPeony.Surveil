@@ -8,7 +8,7 @@
 // Created          : 04-18-2014
 //
 // Last Modified By : wdysunflower
-// Last Modified On : 04-24-2014
+// Last Modified On : 04-25-2014
 // ***********************************************************************
 
 using System;
@@ -24,9 +24,9 @@ using WPFPeony.Surveil.Util;
 namespace WPFPeony.Surveil.ViewModel
 {
     /// <summary>
-    /// Class UIDataBase.
+    /// Class UIBindBase.
     /// </summary>
-    public class UIDataBase : BindableBase
+    public class UIBindBase : BindableBase
     {
         #region 数据
 

@@ -11,7 +11,6 @@
 // Last Modified On : 04-24-2014
 // ***********************************************************************
 
-using System.Collections.ObjectModel;
 using WPFPeony.Surveil.Model;
 
 namespace WPFPeony.Surveil.ViewModel
@@ -19,7 +18,7 @@ namespace WPFPeony.Surveil.ViewModel
     /// <summary>
     /// Class ADataBase.
     /// </summary>
-    public class DataBase : UIDataBase
+    public class DataBase : ObjectBase
     {
         /// <summary>
         /// The _data base
@@ -35,6 +34,8 @@ namespace WPFPeony.Surveil.ViewModel
             _dataBase = dataBase;
             ControlName = dataBase.Name;
         }
+
+        #region Bindign Property
 
         /// <summary>
         /// Gets the identifier.
@@ -57,7 +58,7 @@ namespace WPFPeony.Surveil.ViewModel
         /// <summary>
         /// The _is expanded
         /// </summary>
-        public bool _isExpanded;
+        private bool _isExpanded;
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is expanded.
@@ -69,18 +70,6 @@ namespace WPFPeony.Surveil.ViewModel
             set { SetProperty(ref _isExpanded, value, () => IsExpanded); }
         }
 
-        /// <summary>
-        /// The _child col
-        /// </summary>
-        private ObservableCollection<DataBase> _childCol;
-
-        /// <summary>
-        /// Gets the child col.
-        /// </summary>
-        /// <value>The child col.</value>
-        public ObservableCollection<DataBase> ChildCol
-        {
-            get { return _childCol ?? (_childCol = new ObservableCollection<DataBase>()); }
-        }
+        #endregion
     }
 }

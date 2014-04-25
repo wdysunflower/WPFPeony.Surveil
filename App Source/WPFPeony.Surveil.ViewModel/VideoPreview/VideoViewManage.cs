@@ -19,32 +19,32 @@ using WPFPeony.Surveil.Custom;
 namespace WPFPeony.Surveil.ViewModel
 {
     /// <summary>
-    /// Class VideoViewOperator.
+    /// Class VideoViewManage.
     /// </summary>
-    public class VideoViewOperator : ViewModelBase
+    public class VideoViewManage : ViewModelBase
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VideoViewOperator"/> class.
+        /// Initializes a new instance of the <see cref="VideoViewManage"/> class.
         /// </summary>
-        public VideoViewOperator()
+        public VideoViewManage()
         {
             _layoutType = ViewLayoutTypes.Four;
-            _layoutTypeCol = new ObservableCollection<UIDataBase>();
-            UIDataBase view2 = new UIDataBase
+            _layoutTypeCol = new ObservableCollection<UIBindBase>();
+            UIBindBase view2 = new UIBindBase
             {
                 RelationData = ViewLayoutTypes.Two,
                 ControlViewKey = "View-Split",
                 ControlToolTip = "平分视图"
             };
             _layoutTypeCol.Add(view2);
-            UIDataBase view4 = new UIDataBase
+            UIBindBase view4 = new UIBindBase
             {
                 RelationData = ViewLayoutTypes.Four,
                 ControlViewKey = "View-Medium-Icons",
                 ControlToolTip = "四视图"
             };
             _layoutTypeCol.Add(view4);
-            UIDataBase view9 = new UIDataBase
+            UIBindBase view9 = new UIBindBase
             {
                 RelationData = ViewLayoutTypes.Nine,
                 ControlViewKey = "View-Small-Icons-01",
@@ -73,15 +73,29 @@ namespace WPFPeony.Surveil.ViewModel
         /// <summary>
         /// The _layout type col
         /// </summary>
-        private readonly ObservableCollection<UIDataBase> _layoutTypeCol;
+        private readonly ObservableCollection<UIBindBase> _layoutTypeCol;
 
         /// <summary>
         /// Gets the layout type col.
         /// </summary>
         /// <value>The layout type col.</value>
-        public ObservableCollection<UIDataBase> LayoutTypeCol
+        public ObservableCollection<UIBindBase> LayoutTypeCol
         {
             get { return _layoutTypeCol; }
+        }
+
+        /// <summary>
+        /// The _video win oper
+        /// </summary>
+        private VideoWinOperator _videoWinOper;
+
+        /// <summary>
+        /// Gets the video view oper.
+        /// </summary>
+        /// <value>The video view oper.</value>
+        public VideoWinOperator VideoViewOper
+        {
+            get { return _videoWinOper ?? (_videoWinOper = new VideoWinOperator()); }
         }
 
         #endregion
@@ -112,7 +126,7 @@ namespace WPFPeony.Surveil.ViewModel
         /// <param name="sender">The sender.</param>
         public void ExSelectionChangedCmd(object sender)
         {
-            UIDataBase data = sender as UIDataBase;
+            UIBindBase data = sender as UIBindBase;
 
             if (data != null)
             {

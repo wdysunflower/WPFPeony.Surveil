@@ -21,7 +21,7 @@ namespace WPFPeony.Surveil.ViewModel
     /// <summary>
     /// Class LoginOperator.
     /// </summary>
-    public class LoginOperator : UINavigateBase
+    public class LoginManage : UINavigateBase
     {
         #region Binding Property
 

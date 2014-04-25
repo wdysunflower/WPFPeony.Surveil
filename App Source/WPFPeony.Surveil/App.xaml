@@ -9,8 +9,10 @@
                 <ResourceDictionary Source="/StyleSource/NormalStyleDic.xaml" />
                 <ResourceDictionary Source="/StyleSource/DataTemplateDic.xaml" />
                 <ResourceDictionary Source="/WPFPeony.Surveil.Resource;component/IcoSource/Xaml/WPFPeony.Surveil.xaml" />
+                <ResourceDictionary Source="/WPFPeony.Surveil.Resource;component/IcoSource/Xaml/WPFPeony.Surveil.Small.xaml" />
                 <ResourceDictionary Source="/WPFPeony.Surveil.Resource;component/Theme/CustomDataDic.xaml" />
                 <ResourceDictionary Source="/WPFPeony.Surveil.Resource;component/Theme/ThemeDic.xaml" />
+                <ResourceDictionary Source="/WPFPeony.Surveil.Custom;component/Themes/Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

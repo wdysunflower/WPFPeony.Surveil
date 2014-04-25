@@ -6,19 +6,17 @@
              xmlns:surveil="clr-namespace:WPFPeony.Surveil">
 
     <dxlc:LayoutControl Orientation="Vertical"
-                        DataContext="{Binding SurveilOper}">
+                        DataContext="{Binding Surveil.PlayBack}">
         <dxlc:LayoutGroup VerticalAlignment="Top">
             <dxwui:PageAdornerControl HorizontalAlignment="Left"
                                       Header="录像审看"
                                       BackCommand="{Binding ModuleExitCmd}" />
 
-            <surveil:ToolBarCtl HorizontalAlignment="Right"
-                                Margin="0,0,100,0"
-                                DataContext="{Binding PlayBackOper}" />
+            <surveil:VideoViewBarCtl HorizontalAlignment="Right"
+                                     Margin="0,0,100,0" />
         </dxlc:LayoutGroup>
 
-        <dxlc:LayoutGroup Orientation="Horizontal"
-                          DataContext="{Binding PlayBackOper}">
+        <dxlc:LayoutGroup Orientation="Horizontal">
             <dxlc:LayoutControl HorizontalAlignment="Left"
                                 AllowHorizontalSizing="True"
                                 Orientation="Vertical"

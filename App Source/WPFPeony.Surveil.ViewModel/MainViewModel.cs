@@ -23,29 +23,29 @@ namespace WPFPeony.Surveil.ViewModel
         /// <summary>
         /// The _login oper
         /// </summary>
-        private LoginOperator _loginOper;
+        private LoginManage _login;
 
         /// <summary>
         /// Gets the login oper.
         /// </summary>
         /// <value>The login oper.</value>
-        public LoginOperator LoginOper
+        public LoginManage Login
         {
-            get { return _loginOper ?? (_loginOper = new LoginOperator {ParentNavigate = this}); }
+            get { return _login ?? (_login = new LoginManage {ParentNavigate = this}); }
         }
 
         /// <summary>
         /// The _surveil oper
         /// </summary>
-        private SurveilOperator _surveilOper;
+        private SurveilManage _surveil;
 
         /// <summary>
         /// Gets the surveil oper.
         /// </summary>
         /// <value>The surveil oper.</value>
-        public SurveilOperator SurveilOper
+        public SurveilManage Surveil
         {
-            get { return _surveilOper ?? (_surveilOper = new SurveilOperator {ParentNavigate = this}); }
+            get { return _surveil ?? (_surveil = new SurveilManage {ParentNavigate = this}); }
         }
 
         #endregion

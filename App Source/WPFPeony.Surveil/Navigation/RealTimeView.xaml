@@ -6,19 +6,17 @@
              xmlns:surveil="clr-namespace:WPFPeony.Surveil">
 
     <dxlc:LayoutControl Orientation="Vertical"
-                        DataContext="{Binding SurveilOper}">
+                        DataContext="{Binding Surveil.RealTime}">
         <dxlc:LayoutControl VerticalAlignment="Top">
             <dxwui:PageAdornerControl HorizontalAlignment="Left"
                                       Header="实时监控"
                                       BackCommand="{Binding ModuleExitCmd}" />
 
-            <surveil:ToolBarCtl HorizontalAlignment="Right"
-                                Margin="0,0,100,0"
-                                DataContext="{Binding RealTimeOper}" />
+            <surveil:VideoViewBarCtl HorizontalAlignment="Right"
+                                     Margin="0,0,100,0" />
         </dxlc:LayoutControl>
 
-        <dxlc:LayoutGroup DataContext="{Binding RealTimeOper}"
-                          Orientation="Horizontal">
+        <dxlc:LayoutGroup Orientation="Horizontal">
             <dxlc:LayoutControl HorizontalAlignment="Left"
                                 AllowHorizontalSizing="True"
                                 MinWidth="250"
