@@ -26,7 +26,7 @@
                     <Border x:Name="FloatingContainerHeader"
                             Grid.Row="0"
                             Panel.ZIndex="3">
-                        <Grid Margin="5,5,10,0">
+                        <Grid Margin="5,10,10,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
@@ -239,7 +239,7 @@
                         </Storyboard>
                     </VisualState>
                     <VisualState x:Name="Disabled">
-                        <Storyboard></Storyboard>
+                        <Storyboard />
                     </VisualState>
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>

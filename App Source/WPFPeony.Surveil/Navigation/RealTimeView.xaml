@@ -17,14 +17,17 @@
                                 DataContext="{Binding RealTimeOper}" />
         </dxlc:LayoutControl>
 
-        <dxlc:LayoutGroup DataContext="{Binding RealTimeOper}">
-            <dxlc:LayoutGroup View="GroupBox"
-                              Header="摄像机列表"
-                              HorizontalAlignment="Left"
-                              MinWidth="250"
-                              MaxWidth="500">
-                <surveil:EntityTreeCtl />
-            </dxlc:LayoutGroup>
+        <dxlc:LayoutGroup DataContext="{Binding RealTimeOper}"
+                          Orientation="Horizontal">
+            <dxlc:LayoutControl HorizontalAlignment="Left"
+                                AllowHorizontalSizing="True"
+                                MinWidth="250"
+                                MaxWidth="500">
+                <dxlc:LayoutGroup View="GroupBox"
+                                  Header="摄像机资源">
+                    <surveil:CameraDataCtl />
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutControl>
 
             <dxlc:LayoutGroup View="GroupBox"
                               Header="预览视图">
@@ -32,5 +35,8 @@
             </dxlc:LayoutGroup>
         </dxlc:LayoutGroup>
 
+        <dxlc:LayoutGroup VerticalAlignment="Bottom">
+            <TextBlock Text="当前状态：在线" />
+        </dxlc:LayoutGroup>
     </dxlc:LayoutControl>
 </UserControl>

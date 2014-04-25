@@ -1,14 +1,29 @@
-﻿using System.Threading;
+﻿// ***********************************************************************
+// <copyright file="LoginOperator.cs" company="Peony">
+//     Copyright (c) Peony. All rights reserved.
+// </copyright>
+// ***********************************************************************
+// Assembly         : WPFPeony.Surveil.ViewModel
+// Author           : wdysunflower
+// Created          : 04-17-2014
+//
+// Last Modified By : wdysunflower
+// Last Modified On : 04-18-2014
+// ***********************************************************************
+
+using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 using DevExpress.Xpf.Mvvm;
 
 namespace WPFPeony.Surveil.ViewModel
 {
+    /// <summary>
+    /// Class LoginOperator.
+    /// </summary>
     public class LoginOperator : UINavigateBase
     {
         #region Binding Property
-
 
         #endregion
 
@@ -16,13 +31,24 @@ namespace WPFPeony.Surveil.ViewModel
 
         #region LoginCmd
 
-        ICommand _loginCmd;
+        /// <summary>
+        /// The _login command
+        /// </summary>
+        private ICommand _loginCmd;
+
+        /// <summary>
+        /// Gets the login command.
+        /// </summary>
+        /// <value>The login command.</value>
         public ICommand LoginCmd
         {
             get { return _loginCmd ?? (_loginCmd = new DelegateCommand(OnLoginCmd)); }
         }
 
-        void OnLoginCmd()
+        /// <summary>
+        /// Called when [login command].
+        /// </summary>
+        private void OnLoginCmd()
         {
             WaitPrompt = "登录中...";
             ScreenService.ShowSplashScreenByData(UIViewNameHelper.LoginScreen, this);
@@ -34,15 +60,27 @@ namespace WPFPeony.Surveil.ViewModel
 
         #endregion
 
-        #region CancleCmd
+        #region CancelCmd
 
-        ICommand _cancleCmd;
-        public ICommand CancleCmd
+        /// <summary>
+        /// The _cancel command
+        /// </summary>
+        private ICommand _cancelCmd;
+
+        /// <summary>
+        /// Gets the cancel command.
+        /// </summary>
+        /// <value>The cancel command.</value>
+        public ICommand CancelCmd
         {
-            get { return _cancleCmd ?? (_cancleCmd = new DelegateCommand<DependencyObject>(OnCancleCmd)); }
+            get { return _cancelCmd ?? (_cancelCmd = new DelegateCommand<DependencyObject>(OnCancelCmd)); }
         }
 
-        void OnCancleCmd(DependencyObject dependency)
+        /// <summary>
+        /// Called when [cancel command].
+        /// </summary>
+        /// <param name="dependency">The dependency.</param>
+        private void OnCancelCmd(DependencyObject dependency)
         {
             Window win = Window.GetWindow(dependency);
             if (win != null)

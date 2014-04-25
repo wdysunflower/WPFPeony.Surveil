@@ -3,11 +3,11 @@
 namespace WPFPeony.Surveil
 {
     /// <summary>
-    /// SingleVideoWin.xaml 的交互逻辑
+    /// CameraDataCtl.xaml 的交互逻辑
     /// </summary>
-    public partial class VideoWin : UserControl
+    public partial class CameraDataCtl : UserControl
     {
-        public VideoWin()
+        public CameraDataCtl()
         {
             InitializeComponent();
         }

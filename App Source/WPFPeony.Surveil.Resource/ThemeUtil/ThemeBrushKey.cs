@@ -18,6 +18,7 @@ namespace WPFPeony.Surveil.Resource
     public class ThemeBrushKeyExtension : ThemeKeyExtensionBase<ThemeBrushKey>
     {
         public ThemeBrushKeyExtension()
-        { }
+        {
+        }
     }
 }

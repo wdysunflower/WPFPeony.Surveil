@@ -39,14 +39,10 @@
 
     <Grid>
         <dxlc:LayoutControl Orientation="Vertical"
-                            Margin="0,-26,0,0">
+                            Margin="0,-30,0,0">
             <dxwui:NavigationFrame x:Name="MyFrame"
                                    AnimationType="SlideHorizontal"
                                    BackNavigationMode="Root" />
-
-            <dxlc:LayoutGroup VerticalAlignment="Bottom">
-                <TextBlock Text="当前状态：在线" />
-            </dxlc:LayoutGroup>
         </dxlc:LayoutControl>
     </Grid>
 

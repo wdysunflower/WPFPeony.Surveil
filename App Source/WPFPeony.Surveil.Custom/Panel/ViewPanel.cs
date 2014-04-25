@@ -11,71 +11,50 @@ namespace WPFPeony.Surveil.Custom
     /// </summary>
     public enum ViewLayoutTypes
     {
-        [Description("0")]
-        None,
+        [Description("0")] None,
 
-        [Description("1")]
-        One = 1,
+        [Description("1")] One = 1,
 
-        [Description("2")]
-        Two = 2,
+        [Description("2")] Two = 2,
 
-        [Description("3")]
-        Three = 3,
+        [Description("3")] Three = 3,
 
-        [Description("4")]
-        Four = 4,
+        [Description("4")] Four = 4,
 
-        [Description("5")]
-        Five = 5,
+        [Description("5")] Five = 5,
 
-        [Description("6")]
-        Six = 6,
+        [Description("6")] Six = 6,
 
-        [Description("7")]
-        Seven = 7,
+        [Description("7")] Seven = 7,
 
-        [Description("8")]
-        Eight = 8,
+        [Description("8")] Eight = 8,
 
-        [Description("9")]
-        Nine = 9,
+        [Description("9")] Nine = 9,
 
-        [Description("10")]
-        Ten = 10,
+        [Description("10")] Ten = 10,
 
-        [Description("11")]
-        Eleven = 11,
+        [Description("11")] Eleven = 11,
 
-        [Description("12")]
-        Twelve = 12,
+        [Description("12")] Twelve = 12,
 
-        [Description("13")]
-        Thirteen = 13,
+        [Description("13")] Thirteen = 13,
 
-        [Description("14")]
-        Fourteen = 14,
+        [Description("14")] Fourteen = 14,
 
-        [Description("15")]
-        Fifteen = 15,
+        [Description("15")] Fifteen = 15,
 
-        [Description("16")]
-        Sixteen = 16,
+        [Description("16")] Sixteen = 16,
 
         More = 100,
 
         //Special
-        [Description("1")]
-        SpecialOne = 101,
+        [Description("1")] SpecialOne = 101,
 
-        [Description("5")]
-        SpecialFive = 105,
+        [Description("5")] SpecialFive = 105,
 
-        [Description("7")]
-        SpecialSeven = 107,
+        [Description("7")] SpecialSeven = 107,
 
-        [Description("10")]
-        SpecialTen = 110,
+        [Description("10")] SpecialTen = 110,
     }
 
     /// <summary>
@@ -90,7 +69,7 @@ namespace WPFPeony.Surveil.Custom
             this.Loaded += ViewPanelLoaded;
         }
 
-        void ViewPanelLoaded(object sender, RoutedEventArgs e)
+        private void ViewPanelLoaded(object sender, RoutedEventArgs e)
         {
             SetLayoutCount();
         }
@@ -102,12 +81,12 @@ namespace WPFPeony.Surveil.Custom
         #region LayoutType
 
         public static DependencyProperty LayoutTypeProperty =
-               DependencyProperty.Register("LayoutType", typeof(ViewLayoutTypes), typeof(ViewPanel),
-               new PropertyMetadata(ViewLayoutTypes.Five, OnLayoutChanged));
+            DependencyProperty.Register("LayoutType", typeof (ViewLayoutTypes), typeof (ViewPanel),
+                new PropertyMetadata(ViewLayoutTypes.Five, OnLayoutChanged));
 
         public ViewLayoutTypes LayoutType
         {
-            get { return (ViewLayoutTypes)GetValue(LayoutTypeProperty); }
+            get { return (ViewLayoutTypes) GetValue(LayoutTypeProperty); }
             set { SetValue(LayoutTypeProperty, value); }
         }
 
@@ -116,11 +95,12 @@ namespace WPFPeony.Surveil.Custom
         #region Rows
 
         public static DependencyProperty RowsProperty =
-        DependencyProperty.Register("Rows", typeof(int), typeof(ViewPanel), new PropertyMetadata(0, OnLayoutChanged));
+            DependencyProperty.Register("Rows", typeof (int), typeof (ViewPanel),
+                new PropertyMetadata(0, OnLayoutChanged));
 
         public int Rows
         {
-            get { return (int)GetValue(RowsProperty); }
+            get { return (int) GetValue(RowsProperty); }
             set { SetValue(RowsProperty, value); }
         }
 
@@ -129,11 +109,12 @@ namespace WPFPeony.Surveil.Custom
         #region Columns
 
         public static DependencyProperty ColumnsProperty =
-        DependencyProperty.Register("Columns", typeof(int), typeof(ViewPanel), new PropertyMetadata(0, OnLayoutChanged));
+            DependencyProperty.Register("Columns", typeof (int), typeof (ViewPanel),
+                new PropertyMetadata(0, OnLayoutChanged));
 
         public int Columns
         {
-            get { return (int)GetValue(ColumnsProperty); }
+            get { return (int) GetValue(ColumnsProperty); }
             set { SetValue(ColumnsProperty, value); }
         }
 
@@ -142,11 +123,11 @@ namespace WPFPeony.Surveil.Custom
         #region LayoutCount
 
         public static DependencyProperty LayoutCountProperty =
-        DependencyProperty.Register("LayoutCount", typeof(int), typeof(ViewPanel));
+            DependencyProperty.Register("LayoutCount", typeof (int), typeof (ViewPanel));
 
         public int LayoutCount
         {
-            get { return (int)GetValue(LayoutCountProperty); }
+            get { return (int) GetValue(LayoutCountProperty); }
             set { SetValue(LayoutCountProperty, value); }
         }
 
@@ -191,13 +172,13 @@ namespace WPFPeony.Surveil.Custom
                     SetMeasureWithRegular(availableSize);
                     break;
                 default:
-                    {
-                        string methodName = "SetMeasureWith" + LayoutType.ToString();
-                        const BindingFlags flags = BindingFlags.NonPublic | BindingFlags.Instance;
-                        MethodInfo info = this.GetType().GetMethod(methodName, flags);
-                        if (info != null)
-                            info.Invoke(this, new object[] { availableSize });
-                    }
+                {
+                    string methodName = "SetMeasureWith" + LayoutType.ToString();
+                    const BindingFlags flags = BindingFlags.NonPublic | BindingFlags.Instance;
+                    MethodInfo info = this.GetType().GetMethod(methodName, flags);
+                    if (info != null)
+                        info.Invoke(this, new object[] {availableSize});
+                }
                     break;
             }
             return availableSize;
@@ -207,8 +188,9 @@ namespace WPFPeony.Surveil.Custom
         {
             foreach (UIElement child in this.Children)
             {
-                Size childSize = this.Children.IndexOf(child) < 1 ?
-                    new Size(availableSize.Width, availableSize.Height) : Size.Empty;
+                Size childSize = this.Children.IndexOf(child) < 1
+                    ? new Size(availableSize.Width, availableSize.Height)
+                    : Size.Empty;
 
                 if (childSize != Size.Empty)
                     child.Measure(childSize);
@@ -217,12 +199,13 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithTwo(Size availableSize)
         {
-            double cellWidth = availableSize.Width / 2;
+            double cellWidth = availableSize.Width/2;
 
             foreach (UIElement child in this.Children)
             {
-                Size childSize = this.Children.IndexOf(child) < 2 ?
-                    new Size(cellWidth, availableSize.Height) : Size.Empty;
+                Size childSize = this.Children.IndexOf(child) < 2
+                    ? new Size(cellWidth, availableSize.Height)
+                    : Size.Empty;
 
                 if (childSize != Size.Empty)
                     child.Measure(childSize);
@@ -231,8 +214,8 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithThree(Size availableSize)
         {
-            double cellWidth = availableSize.Width / 2;
-            double cellHeight = availableSize.Height / 2;
+            double cellWidth = availableSize.Width/2;
+            double cellHeight = availableSize.Height/2;
 
             foreach (UIElement child in this.Children)
             {
@@ -240,7 +223,7 @@ namespace WPFPeony.Surveil.Custom
                 if (this.Children.IndexOf(child) < 2)
                     childSize = new Size(cellWidth, cellHeight);
                 else if (this.Children.IndexOf(child) < 3)
-                    childSize = new Size(cellWidth * 2, cellHeight);
+                    childSize = new Size(cellWidth*2, cellHeight);
                 else
                     childSize = Size.Empty;
 
@@ -251,13 +234,14 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithFour(Size availableSize)
         {
-            double cellWidth = availableSize.Width / 2;
-            double cellHeight = availableSize.Height / 2;
+            double cellWidth = availableSize.Width/2;
+            double cellHeight = availableSize.Height/2;
 
             foreach (UIElement child in this.Children)
             {
-                Size childSize = this.Children.IndexOf(child) < 4 ?
-                    new Size(cellWidth, cellHeight) : Size.Empty;
+                Size childSize = this.Children.IndexOf(child) < 4
+                    ? new Size(cellWidth, cellHeight)
+                    : Size.Empty;
 
                 if (childSize != Size.Empty)
                     child.Measure(childSize);
@@ -266,14 +250,14 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithFive(Size availableSize)
         {
-            double cellWidth = availableSize.Width / 4;
-            double cellHeight = availableSize.Height / 4;
+            double cellWidth = availableSize.Width/4;
+            double cellHeight = availableSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
                 Size childSize;
                 if (this.Children.IndexOf(child) == 0)
-                    childSize = new Size(cellWidth * 3, cellHeight * 4);
+                    childSize = new Size(cellWidth*3, cellHeight*4);
                 else if (this.Children.IndexOf(child) < 5)
                     childSize = new Size(cellWidth, cellHeight);
                 else
@@ -286,14 +270,14 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithSix(Size availableSize)
         {
-            double cellWidth = availableSize.Width / 3;
-            double cellHeight = availableSize.Height / 3;
+            double cellWidth = availableSize.Width/3;
+            double cellHeight = availableSize.Height/3;
 
             foreach (UIElement child in this.Children)
             {
                 Size childSize;
                 if (this.Children.IndexOf(child) == 0)
-                    childSize = new Size(cellWidth * 2, cellHeight * 2);
+                    childSize = new Size(cellWidth*2, cellHeight*2);
                 else if (this.Children.IndexOf(child) < 6)
                     childSize = new Size(cellWidth, cellHeight);
                 else
@@ -306,15 +290,15 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithSeven(Size availableSize)
         {
-            double cellWidth = availableSize.Width / 4;
-            double cellHeight = availableSize.Height / 4;
+            double cellWidth = availableSize.Width/4;
+            double cellHeight = availableSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
                 Size childSize;
                 if (this.Children.IndexOf(child) < 3)
                 {
-                    childSize = new Size(cellWidth * 2, cellHeight * 2);
+                    childSize = new Size(cellWidth*2, cellHeight*2);
                 }
                 else if (this.Children.IndexOf(child) < 7)
                 {
@@ -330,14 +314,14 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithEight(Size availableSize)
         {
-            double cellWidth = availableSize.Width / 4;
-            double cellHeight = availableSize.Height / 4;
+            double cellWidth = availableSize.Width/4;
+            double cellHeight = availableSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
                 Size childSize;
                 if (this.Children.IndexOf(child) == 0)
-                    childSize = new Size(cellWidth * 3, cellHeight * 3);
+                    childSize = new Size(cellWidth*3, cellHeight*3);
                 else if (this.Children.IndexOf(child) < 8)
                     childSize = new Size(cellWidth, cellHeight);
                 else
@@ -350,13 +334,14 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithNine(Size availableSize)
         {
-            double cellWidth = availableSize.Width / 3;
-            double cellHeight = availableSize.Height / 3;
+            double cellWidth = availableSize.Width/3;
+            double cellHeight = availableSize.Height/3;
 
             foreach (UIElement child in this.Children)
             {
-                Size childSize = this.Children.IndexOf(child) < 9 ?
-                    new Size(cellWidth, cellHeight) : Size.Empty;
+                Size childSize = this.Children.IndexOf(child) < 9
+                    ? new Size(cellWidth, cellHeight)
+                    : Size.Empty;
 
                 if (childSize != Size.Empty)
                     child.Measure(childSize);
@@ -365,14 +350,14 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithTen(Size availableSize)
         {
-            double cellWidth = availableSize.Width / 5;
-            double cellHeight = availableSize.Height / 5;
+            double cellWidth = availableSize.Width/5;
+            double cellHeight = availableSize.Height/5;
 
             foreach (UIElement child in this.Children)
             {
                 Size childSize;
                 if (this.Children.IndexOf(child) == 0)
-                    childSize = new Size(cellWidth * 4, cellHeight * 4);
+                    childSize = new Size(cellWidth*4, cellHeight*4);
                 else if (this.Children.IndexOf(child) < 10)
                     childSize = new Size(cellWidth, cellHeight);
                 else
@@ -385,14 +370,14 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithEleven(Size availableSize)
         {
-            double cellWidth = availableSize.Width / 4;
-            double cellHeight = availableSize.Height / 4;
+            double cellWidth = availableSize.Width/4;
+            double cellHeight = availableSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
                 Size childSize;
                 if (this.Children.IndexOf(child) == 0)
-                    childSize = new Size(cellWidth * 3, cellHeight * 2);
+                    childSize = new Size(cellWidth*3, cellHeight*2);
                 else if (this.Children.IndexOf(child) < 11)
                     childSize = new Size(cellWidth, cellHeight);
                 else
@@ -405,14 +390,14 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithTwelve(Size availableSize)
         {
-            double cellWidth = availableSize.Width / 4;
-            double cellHeight = availableSize.Height / 4;
+            double cellWidth = availableSize.Width/4;
+            double cellHeight = availableSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
                 Size childSize;
                 if (this.Children.IndexOf(child) < 2)
-                    childSize = new Size(cellWidth * 1.5, cellHeight * 2);
+                    childSize = new Size(cellWidth*1.5, cellHeight*2);
                 else if (this.Children.IndexOf(child) < 12)
                     childSize = new Size(cellWidth, cellHeight);
                 else
@@ -425,8 +410,8 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithThirteen(Size availableSize)
         {
-            double cellWidth = availableSize.Width / 4;
-            double cellHeight = availableSize.Height / 4;
+            double cellWidth = availableSize.Width/4;
+            double cellHeight = availableSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
@@ -434,7 +419,7 @@ namespace WPFPeony.Surveil.Custom
                 if (this.Children.IndexOf(child) < 6)
                     childSize = new Size(cellWidth, cellHeight);
                 else if (this.Children.IndexOf(child) == 6)
-                    childSize = new Size(cellWidth * 2, cellHeight * 2);
+                    childSize = new Size(cellWidth*2, cellHeight*2);
                 else if (this.Children.IndexOf(child) < 9)
                     childSize = new Size(cellWidth, cellHeight);
                 else
@@ -447,14 +432,14 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithFourteen(Size availableSize)
         {
-            double cellWidth = availableSize.Width / 4;
-            double cellHeight = availableSize.Height / 4;
+            double cellWidth = availableSize.Width/4;
+            double cellHeight = availableSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
                 Size childSize;
                 if (this.Children.IndexOf(child) < 2)
-                    childSize = new Size(cellWidth, cellHeight * 2);
+                    childSize = new Size(cellWidth, cellHeight*2);
                 else if (this.Children.IndexOf(child) < 14)
                     childSize = new Size(cellWidth, cellHeight);
                 else
@@ -467,14 +452,14 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithFifteen(Size availableSize)
         {
-            double cellWidth = availableSize.Width / 4;
-            double cellHeight = availableSize.Height / 4;
+            double cellWidth = availableSize.Width/4;
+            double cellHeight = availableSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
                 Size childSize;
                 if (this.Children.IndexOf(child) < 1)
-                    childSize = new Size(cellWidth, cellHeight * 2);
+                    childSize = new Size(cellWidth, cellHeight*2);
                 else if (this.Children.IndexOf(child) < 15)
                     childSize = new Size(cellWidth, cellHeight);
                 else
@@ -487,13 +472,14 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithSixteen(Size availableSize)
         {
-            double cellWidth = availableSize.Width / 4;
-            double cellHeight = availableSize.Height / 4;
+            double cellWidth = availableSize.Width/4;
+            double cellHeight = availableSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
-                Size childSize = this.Children.IndexOf(child) < 16 ?
-                    new Size(cellWidth, cellHeight) : Size.Empty;
+                Size childSize = this.Children.IndexOf(child) < 16
+                    ? new Size(cellWidth, cellHeight)
+                    : Size.Empty;
 
                 if (childSize != Size.Empty)
                     child.Measure(childSize);
@@ -516,8 +502,8 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithSpecialSeven(Size availableSize)
         {
-            Size largeChild = new Size(availableSize.Width / 2, availableSize.Height / 2);
-            Size smallChild = new Size(availableSize.Width / 4, availableSize.Height / 4);
+            Size largeChild = new Size(availableSize.Width/2, availableSize.Height/2);
+            Size smallChild = new Size(availableSize.Width/4, availableSize.Height/4);
 
             foreach (UIElement child in this.Children)
             {
@@ -540,16 +526,16 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithSpecialFive(Size availableSize)
         {
-            double cellWidth = availableSize.Width / 3;
-            double cellHeight = availableSize.Height / 3;
+            double cellWidth = availableSize.Width/3;
+            double cellHeight = availableSize.Height/3;
 
             foreach (UIElement child in this.Children)
             {
                 Size childSize;
                 if (this.Children.IndexOf(child) == 0)
-                    childSize = new Size(cellWidth * 2, cellHeight * 2);
+                    childSize = new Size(cellWidth*2, cellHeight*2);
                 else if (this.Children.IndexOf(child) == 3)
-                    childSize = new Size(cellWidth * 2, cellHeight);
+                    childSize = new Size(cellWidth*2, cellHeight);
                 else if (this.Children.IndexOf(child) < 5)
                     childSize = new Size(cellWidth, cellHeight);
                 else
@@ -561,13 +547,13 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetMeasureWithSpecialTen(Size availableSize)
         {
-            double cellWidth = availableSize.Width / 4;
-            double cellHeight = availableSize.Height / 4;
+            double cellWidth = availableSize.Width/4;
+            double cellHeight = availableSize.Height/4;
             foreach (UIElement child in this.Children)
             {
                 Size childSize;
                 if (this.Children.IndexOf(child) < 2)
-                    childSize = new Size(cellWidth * 2, cellHeight * 2);
+                    childSize = new Size(cellWidth*2, cellHeight*2);
                 else if (this.Children.IndexOf(child) < 10)
                     childSize = new Size(cellWidth, cellHeight);
                 else
@@ -580,12 +566,12 @@ namespace WPFPeony.Surveil.Custom
         private void SetMeasureWithRegular(Size availableSize)
         {
             Size childSize = Size.Empty;
-            double cellWidth = availableSize.Width / Columns;
-            double cellHeight = availableSize.Height / Rows;
+            double cellWidth = availableSize.Width/Columns;
+            double cellHeight = availableSize.Height/Rows;
 
             foreach (UIElement child in this.Children)
             {
-                if (this.Children.IndexOf(child) < Columns * Rows)
+                if (this.Children.IndexOf(child) < Columns*Rows)
                 {
                     childSize = new Size(cellWidth, cellHeight);
                 }
@@ -607,13 +593,13 @@ namespace WPFPeony.Surveil.Custom
                     SetArrangeWithRegular(finalSize);
                     break;
                 default:
-                    {
-                        string methodName = "SetArrangeWith" + LayoutType.ToString();
-                        const BindingFlags flags = BindingFlags.NonPublic | BindingFlags.Instance;
-                        MethodInfo info = this.GetType().GetMethod(methodName, flags);
-                        if (info != null)
-                            info.Invoke(this, new object[] { finalSize });
-                    }
+                {
+                    string methodName = "SetArrangeWith" + LayoutType.ToString();
+                    const BindingFlags flags = BindingFlags.NonPublic | BindingFlags.Instance;
+                    MethodInfo info = this.GetType().GetMethod(methodName, flags);
+                    if (info != null)
+                        info.Invoke(this, new object[] {finalSize});
+                }
                     break;
             }
             return finalSize;
@@ -623,8 +609,9 @@ namespace WPFPeony.Surveil.Custom
         {
             foreach (UIElement child in this.Children)
             {
-                Rect childBounds = this.Children.IndexOf(child) < 1 ?
-                    new Rect(0, 0, finalSize.Width, finalSize.Height) : new Rect(0, 0, 0, 0);
+                Rect childBounds = this.Children.IndexOf(child) < 1
+                    ? new Rect(0, 0, finalSize.Width, finalSize.Height)
+                    : new Rect(0, 0, 0, 0);
 
                 if (childBounds != Rect.Empty)
                     child.Arrange(childBounds);
@@ -633,13 +620,13 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetArrangeWithTwo(Size finalSize)
         {
-            double cellWidth = finalSize.Width / 2;
+            double cellWidth = finalSize.Width/2;
 
             foreach (UIElement child in this.Children)
             {
-                Rect childBounds = this.Children.IndexOf(child) < 2 ?
-                    new Rect(cellWidth * this.Children.IndexOf(child), 0, cellWidth, finalSize.Height) :
-                    new Rect(0, 0, 0, 0);
+                Rect childBounds = this.Children.IndexOf(child) < 2
+                    ? new Rect(cellWidth*this.Children.IndexOf(child), 0, cellWidth, finalSize.Height)
+                    : new Rect(0, 0, 0, 0);
 
                 if (childBounds != Rect.Empty)
                     child.Arrange(childBounds);
@@ -648,16 +635,16 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetArrangeWithThree(Size finalSize)
         {
-            double cellWidth = finalSize.Width / 2;
-            double cellHeight = finalSize.Height / 2;
+            double cellWidth = finalSize.Width/2;
+            double cellHeight = finalSize.Height/2;
 
             foreach (UIElement child in this.Children)
             {
                 Rect childBounds;
                 if (this.Children.IndexOf(child) < 2)
-                    childBounds = new Rect(cellWidth * this.Children.IndexOf(child), 0, cellWidth, cellHeight);
+                    childBounds = new Rect(cellWidth*this.Children.IndexOf(child), 0, cellWidth, cellHeight);
                 else if (this.Children.IndexOf(child) < 3)
-                    childBounds = new Rect(0, cellHeight, cellWidth * 2, cellHeight);
+                    childBounds = new Rect(0, cellHeight, cellWidth*2, cellHeight);
                 else
                     childBounds = new Rect(0, 0, 0, 0);
 
@@ -669,8 +656,8 @@ namespace WPFPeony.Surveil.Custom
         private void SetArrangeWithFour(Size finalSize)
         {
             Rect childBounds = Rect.Empty;
-            double cellWidth = finalSize.Width / 2;
-            double cellHeight = finalSize.Height / 2;
+            double cellWidth = finalSize.Width/2;
+            double cellHeight = finalSize.Height/2;
 
             foreach (UIElement child in this.Children)
             {
@@ -697,16 +684,17 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetArrangeWithFive(Size finalSize)
         {
-            double cellWidth = finalSize.Width / 4;
-            double cellHeight = finalSize.Height / 4;
+            double cellWidth = finalSize.Width/4;
+            double cellHeight = finalSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
                 Rect childBounds;
                 if (this.Children.IndexOf(child) == 0)
-                    childBounds = new Rect(0, 0, cellWidth * 3, cellHeight * 4);
+                    childBounds = new Rect(0, 0, cellWidth*3, cellHeight*4);
                 else if (this.Children.IndexOf(child) < 5)
-                    childBounds = new Rect(cellWidth * 3, (this.Children.IndexOf(child) - 1) * cellHeight, cellWidth, cellHeight);
+                    childBounds = new Rect(cellWidth*3, (this.Children.IndexOf(child) - 1)*cellHeight, cellWidth,
+                        cellHeight);
                 else
                     childBounds = new Rect(0, 0, 0, 0);
 
@@ -717,18 +705,20 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetArrangeWithSix(Size finalSize)
         {
-            double cellWidth = finalSize.Width / 3;
-            double cellHeight = finalSize.Height / 3;
+            double cellWidth = finalSize.Width/3;
+            double cellHeight = finalSize.Height/3;
 
             foreach (UIElement child in this.Children)
             {
                 Rect childBounds;
                 if (this.Children.IndexOf(child) == 0)
-                    childBounds = new Rect(0, 0, cellWidth * 2, cellHeight * 2);
+                    childBounds = new Rect(0, 0, cellWidth*2, cellHeight*2);
                 else if (this.Children.IndexOf(child) < 3)
-                    childBounds = new Rect(cellWidth * 2, (this.Children.IndexOf(child) - 1) * cellHeight, cellWidth, cellHeight);
+                    childBounds = new Rect(cellWidth*2, (this.Children.IndexOf(child) - 1)*cellHeight, cellWidth,
+                        cellHeight);
                 else if (this.Children.IndexOf(child) < 6)
-                    childBounds = new Rect((this.Children.IndexOf(child) - 3) * cellWidth, cellHeight * 2, cellWidth, cellHeight);
+                    childBounds = new Rect((this.Children.IndexOf(child) - 3)*cellWidth, cellHeight*2, cellWidth,
+                        cellHeight);
                 else
                     childBounds = new Rect(0, 0, 0, 0);
 
@@ -740,17 +730,17 @@ namespace WPFPeony.Surveil.Custom
         private void SetArrangeWithSeven(Size finalSize)
         {
             Rect childBounds = Rect.Empty;
-            double cellWidth = finalSize.Width / 4;
-            double cellHeight = finalSize.Height / 4;
+            double cellWidth = finalSize.Width/4;
+            double cellHeight = finalSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
                 if (this.Children.IndexOf(child) < 3)
                 {
                     if (this.Children.IndexOf(child) == 0)
-                        childBounds = new Rect(0, 0, cellWidth * 2, cellHeight * 2);
+                        childBounds = new Rect(0, 0, cellWidth*2, cellHeight*2);
                     else
-                        childBounds.X += cellWidth * 2;
+                        childBounds.X += cellWidth*2;
                     if (childBounds.X >= finalSize.Width)
                     {
                         childBounds.Y += childBounds.Height;
@@ -761,7 +751,7 @@ namespace WPFPeony.Surveil.Custom
                 {
                     if (this.Children.IndexOf(child) == 3)
                     {
-                        childBounds = new Rect(cellWidth * 2, cellHeight * 2, cellWidth, cellHeight);
+                        childBounds = new Rect(cellWidth*2, cellHeight*2, cellWidth, cellHeight);
                     }
                     else
                         childBounds.X += cellWidth;
@@ -769,7 +759,7 @@ namespace WPFPeony.Surveil.Custom
                     if (childBounds.X >= finalSize.Width)
                     {
                         childBounds.Y += childBounds.Height;
-                        childBounds.X = cellWidth * 2;
+                        childBounds.X = cellWidth*2;
                     }
                 }
                 else
@@ -782,18 +772,20 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetArrangeWithEight(Size finalSize)
         {
-            double cellWidth = finalSize.Width / 4;
-            double cellHeight = finalSize.Height / 4;
+            double cellWidth = finalSize.Width/4;
+            double cellHeight = finalSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
                 Rect childBounds;
                 if (this.Children.IndexOf(child) == 0)
-                    childBounds = new Rect(0, 0, cellWidth * 3, cellHeight * 3);
+                    childBounds = new Rect(0, 0, cellWidth*3, cellHeight*3);
                 else if (this.Children.IndexOf(child) < 4)
-                    childBounds = new Rect(cellWidth * 3, (this.Children.IndexOf(child) - 1) * cellHeight, cellWidth, cellHeight);
+                    childBounds = new Rect(cellWidth*3, (this.Children.IndexOf(child) - 1)*cellHeight, cellWidth,
+                        cellHeight);
                 else if (this.Children.IndexOf(child) < 8)
-                    childBounds = new Rect((this.Children.IndexOf(child) - 4) * cellWidth, cellHeight * 3, cellWidth, cellHeight);
+                    childBounds = new Rect((this.Children.IndexOf(child) - 4)*cellWidth, cellHeight*3, cellWidth,
+                        cellHeight);
                 else
                     childBounds = new Rect(0, 0, 0, 0);
 
@@ -805,8 +797,8 @@ namespace WPFPeony.Surveil.Custom
         private void SetArrangeWithNine(Size finalSize)
         {
             Rect childBounds = Rect.Empty;
-            double cellWidth = finalSize.Width / 3;
-            double cellHeight = finalSize.Height / 3;
+            double cellWidth = finalSize.Width/3;
+            double cellHeight = finalSize.Height/3;
 
             foreach (UIElement child in this.Children)
             {
@@ -833,18 +825,20 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetArrangeWithTen(Size finalSize)
         {
-            double cellWidth = finalSize.Width / 5;
-            double cellHeight = finalSize.Height / 5;
+            double cellWidth = finalSize.Width/5;
+            double cellHeight = finalSize.Height/5;
 
             foreach (UIElement child in this.Children)
             {
                 Rect childBounds;
                 if (this.Children.IndexOf(child) == 0)
-                    childBounds = new Rect(0, 0, cellWidth * 4, cellHeight * 4);
+                    childBounds = new Rect(0, 0, cellWidth*4, cellHeight*4);
                 else if (this.Children.IndexOf(child) < 5)
-                    childBounds = new Rect(cellWidth * 4, (this.Children.IndexOf(child) - 1) * cellHeight, cellWidth, cellHeight);
+                    childBounds = new Rect(cellWidth*4, (this.Children.IndexOf(child) - 1)*cellHeight, cellWidth,
+                        cellHeight);
                 else if (this.Children.IndexOf(child) < 10)
-                    childBounds = new Rect((this.Children.IndexOf(child) - 5) * cellWidth, cellHeight * 4, cellWidth, cellHeight);
+                    childBounds = new Rect((this.Children.IndexOf(child) - 5)*cellWidth, cellHeight*4, cellWidth,
+                        cellHeight);
                 else
                     childBounds = new Rect(0, 0, 0, 0);
 
@@ -856,20 +850,21 @@ namespace WPFPeony.Surveil.Custom
         private void SetArrangeWithEleven(Size finalSize)
         {
             Rect childBounds = Rect.Empty;
-            double cellWidth = finalSize.Width / 4;
-            double cellHeight = finalSize.Height / 4;
+            double cellWidth = finalSize.Width/4;
+            double cellHeight = finalSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
                 if (this.Children.IndexOf(child) == 0)
-                    childBounds = new Rect(0, 0, cellWidth * 3, cellHeight * 2);
+                    childBounds = new Rect(0, 0, cellWidth*3, cellHeight*2);
                 else if (this.Children.IndexOf(child) < 3)
-                    childBounds = new Rect(cellWidth * 3, (this.Children.IndexOf(child) - 1) * cellHeight, cellWidth, cellHeight);
+                    childBounds = new Rect(cellWidth*3, (this.Children.IndexOf(child) - 1)*cellHeight, cellWidth,
+                        cellHeight);
                 else if (this.Children.IndexOf(child) < 11)
                 {
                     if (this.Children.IndexOf(child) == 3)
                     {
-                        childBounds = new Rect(0, cellHeight * 2, cellWidth, cellHeight);
+                        childBounds = new Rect(0, cellHeight*2, cellWidth, cellHeight);
                     }
                     else
                         childBounds.X += cellWidth;
@@ -891,20 +886,21 @@ namespace WPFPeony.Surveil.Custom
         private void SetArrangeWithTwelve(Size finalSize)
         {
             Rect childBounds = Rect.Empty;
-            double cellWidth = finalSize.Width / 4;
-            double cellHeight = finalSize.Height / 4;
+            double cellWidth = finalSize.Width/4;
+            double cellHeight = finalSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
                 if (this.Children.IndexOf(child) < 2)
-                    childBounds = new Rect(this.Children.IndexOf(child) * cellWidth * 1.5, 0, cellWidth * 1.5, cellHeight * 2);
+                    childBounds = new Rect(this.Children.IndexOf(child)*cellWidth*1.5, 0, cellWidth*1.5, cellHeight*2);
                 else if (this.Children.IndexOf(child) < 4)
-                    childBounds = new Rect(cellWidth * 3, (this.Children.IndexOf(child) - 2) * cellHeight, cellWidth, cellHeight);
+                    childBounds = new Rect(cellWidth*3, (this.Children.IndexOf(child) - 2)*cellHeight, cellWidth,
+                        cellHeight);
                 else if (this.Children.IndexOf(child) < 12)
                 {
                     if (this.Children.IndexOf(child) == 4)
                     {
-                        childBounds = new Rect(0, cellHeight * 2, cellWidth, cellHeight);
+                        childBounds = new Rect(0, cellHeight*2, cellWidth, cellHeight);
                     }
                     else
                         childBounds.X += cellWidth;
@@ -925,22 +921,24 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetArrangeWithThirteen(Size finalSize)
         {
-            double cellWidth = finalSize.Width / 4;
-            double cellHeight = finalSize.Height / 4;
+            double cellWidth = finalSize.Width/4;
+            double cellHeight = finalSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
                 Rect childBounds;
                 if (this.Children.IndexOf(child) < 4)
-                    childBounds = new Rect(this.Children.IndexOf(child) * cellWidth, 0, cellWidth, cellHeight);
+                    childBounds = new Rect(this.Children.IndexOf(child)*cellWidth, 0, cellWidth, cellHeight);
                 else if (this.Children.IndexOf(child) < 6)
-                    childBounds = new Rect(0, (this.Children.IndexOf(child) - 3) * cellHeight, cellWidth, cellHeight);
+                    childBounds = new Rect(0, (this.Children.IndexOf(child) - 3)*cellHeight, cellWidth, cellHeight);
                 else if (this.Children.IndexOf(child) == 6)
-                    childBounds = new Rect(cellWidth, cellHeight, cellWidth * 2, cellHeight * 2);
+                    childBounds = new Rect(cellWidth, cellHeight, cellWidth*2, cellHeight*2);
                 else if (this.Children.IndexOf(child) < 9)
-                    childBounds = new Rect(cellWidth * 3, (this.Children.IndexOf(child) - 6) * cellHeight, cellWidth, cellHeight);
+                    childBounds = new Rect(cellWidth*3, (this.Children.IndexOf(child) - 6)*cellHeight, cellWidth,
+                        cellHeight);
                 else if (this.Children.IndexOf(child) < 13)
-                    childBounds = new Rect((this.Children.IndexOf(child) - 9) * cellWidth, cellHeight * 3, cellWidth, cellHeight);
+                    childBounds = new Rect((this.Children.IndexOf(child) - 9)*cellWidth, cellHeight*3, cellWidth,
+                        cellHeight);
                 else
                     childBounds = new Rect(0, 0, 0, 0);
 
@@ -952,18 +950,18 @@ namespace WPFPeony.Surveil.Custom
         private void SetArrangeWithFourteen(Size finalSize)
         {
             Rect childBounds = Rect.Empty;
-            double cellWidth = finalSize.Width / 4;
-            double cellHeight = finalSize.Height / 4;
+            double cellWidth = finalSize.Width/4;
+            double cellHeight = finalSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
                 if (this.Children.IndexOf(child) < 2)
-                    childBounds = new Rect(this.Children.IndexOf(child) * cellWidth, 0, cellWidth, cellHeight * 2);
+                    childBounds = new Rect(this.Children.IndexOf(child)*cellWidth, 0, cellWidth, cellHeight*2);
                 else if (this.Children.IndexOf(child) < 6)
                 {
                     if (this.Children.IndexOf(child) == 2)
                     {
-                        childBounds = new Rect(cellWidth * 2, 0, cellWidth, cellHeight);
+                        childBounds = new Rect(cellWidth*2, 0, cellWidth, cellHeight);
                     }
                     else
                         childBounds.X += cellWidth;
@@ -971,14 +969,14 @@ namespace WPFPeony.Surveil.Custom
                     if (childBounds.X >= finalSize.Width)
                     {
                         childBounds.Y += childBounds.Height;
-                        childBounds.X = cellWidth * 2;
+                        childBounds.X = cellWidth*2;
                     }
                 }
                 else if (this.Children.IndexOf(child) < 14)
                 {
                     if (this.Children.IndexOf(child) == 6)
                     {
-                        childBounds = new Rect(0, cellHeight * 2, cellWidth, cellHeight);
+                        childBounds = new Rect(0, cellHeight*2, cellWidth, cellHeight);
                     }
                     else
                         childBounds.X += cellWidth;
@@ -1000,13 +998,13 @@ namespace WPFPeony.Surveil.Custom
         private void SetArrangeWithFifteen(Size finalSize)
         {
             Rect childBounds = Rect.Empty;
-            double cellWidth = finalSize.Width / 4;
-            double cellHeight = finalSize.Height / 4;
+            double cellWidth = finalSize.Width/4;
+            double cellHeight = finalSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
                 if (this.Children.IndexOf(child) < 1)
-                    childBounds = new Rect(0, 0, cellWidth, cellHeight * 2);
+                    childBounds = new Rect(0, 0, cellWidth, cellHeight*2);
                 else if (this.Children.IndexOf(child) < 7)
                 {
                     if (this.Children.IndexOf(child) == 1)
@@ -1026,7 +1024,7 @@ namespace WPFPeony.Surveil.Custom
                 {
                     if (this.Children.IndexOf(child) == 7)
                     {
-                        childBounds = new Rect(0, cellHeight * 2, cellWidth, cellHeight);
+                        childBounds = new Rect(0, cellHeight*2, cellWidth, cellHeight);
                     }
                     else
                         childBounds.X += cellWidth;
@@ -1048,8 +1046,8 @@ namespace WPFPeony.Surveil.Custom
         private void SetArrangeWithSixteen(Size finalSize)
         {
             Rect childBounds = Rect.Empty;
-            double cellWidth = finalSize.Width / 4;
-            double cellHeight = finalSize.Height / 4;
+            double cellWidth = finalSize.Width/4;
+            double cellHeight = finalSize.Height/4;
 
             foreach (UIElement child in this.Children)
             {
@@ -1078,8 +1076,9 @@ namespace WPFPeony.Surveil.Custom
         {
             foreach (UIElement child in this.Children)
             {
-                Rect childBounds = child.Visibility == Visibility.Visible ?
-                    new Rect(0, 0, finalSize.Width, finalSize.Height) : new Rect(0, 0, 0, 0);
+                Rect childBounds = child.Visibility == Visibility.Visible
+                    ? new Rect(0, 0, finalSize.Width, finalSize.Height)
+                    : new Rect(0, 0, 0, 0);
 
                 if (childBounds != Rect.Empty)
                     child.Arrange(childBounds);
@@ -1091,8 +1090,8 @@ namespace WPFPeony.Surveil.Custom
             if (InternalChildren.Count < 7)
                 return;
 
-            Size largeChild = new Size(finalSize.Width / 2, finalSize.Height / 2);
-            Size smallChild = new Size(finalSize.Width / 4, finalSize.Height / 4);
+            Size largeChild = new Size(finalSize.Width/2, finalSize.Height/2);
+            Size smallChild = new Size(finalSize.Width/4, finalSize.Height/4);
 
             Point p1 = new Point(0, 0);
             Point p2 = new Point(largeChild.Width, 0);
@@ -1121,20 +1120,20 @@ namespace WPFPeony.Surveil.Custom
             if (InternalChildren.Count < 5)
                 return;
             Rect childBounds = Rect.Empty;
-            double cellWidth = finalSize.Width / 3;
-            double cellHeight = finalSize.Height / 3;
+            double cellWidth = finalSize.Width/3;
+            double cellHeight = finalSize.Height/3;
             foreach (UIElement child in this.Children)
             {
                 if (this.Children.IndexOf(child) == 0)
-                    childBounds = new Rect(0, 0, cellWidth * 2, cellHeight * 2);
+                    childBounds = new Rect(0, 0, cellWidth*2, cellHeight*2);
                 else if (this.Children.IndexOf(child) == 3)
-                    childBounds = new Rect(0, cellHeight * 2, cellWidth * 2, cellHeight);
+                    childBounds = new Rect(0, cellHeight*2, cellWidth*2, cellHeight);
                 else if (this.Children.IndexOf(child) == 1)
-                    childBounds = new Rect(cellWidth * 2, 0, cellWidth, cellHeight);
+                    childBounds = new Rect(cellWidth*2, 0, cellWidth, cellHeight);
                 else if (this.Children.IndexOf(child) == 2)
-                    childBounds = new Rect(cellWidth * 2, cellHeight, cellWidth, cellHeight);
+                    childBounds = new Rect(cellWidth*2, cellHeight, cellWidth, cellHeight);
                 else if (this.Children.IndexOf(child) == 4)
-                    childBounds = new Rect(cellWidth * 2, cellHeight * 2, cellWidth, cellHeight);
+                    childBounds = new Rect(cellWidth*2, cellHeight*2, cellWidth, cellHeight);
                 child.Arrange(childBounds);
             }
         }
@@ -1144,20 +1143,20 @@ namespace WPFPeony.Surveil.Custom
             if (InternalChildren.Count < 10)
                 return;
             Rect childBounds = Rect.Empty;
-            double cellWidth = finalSize.Width / 4;
-            double cellHeight = finalSize.Height / 4;
+            double cellWidth = finalSize.Width/4;
+            double cellHeight = finalSize.Height/4;
             foreach (UIElement child in this.Children)
             {
                 int childIndex = this.Children.IndexOf(child);
                 if (this.Children.IndexOf(child) < 2)
                 {
-                    childBounds = new Rect(childIndex * cellWidth * 2, 0, cellWidth * 2, cellHeight * 2);
+                    childBounds = new Rect(childIndex*cellWidth*2, 0, cellWidth*2, cellHeight*2);
                 }
                 else if (this.Children.IndexOf(child) < 10)
                 {
-                    int px = (childIndex - 2) % 4;
-                    int py = (childIndex - 2) / 4 + 2;
-                    childBounds = new Rect(px * cellWidth, py * cellHeight, cellWidth, cellHeight);
+                    int px = (childIndex - 2)%4;
+                    int py = (childIndex - 2)/4 + 2;
+                    childBounds = new Rect(px*cellWidth, py*cellHeight, cellWidth, cellHeight);
                 }
                 child.Arrange(childBounds);
             }
@@ -1165,16 +1164,16 @@ namespace WPFPeony.Surveil.Custom
 
         private void SetArrangeWithRegular(Size finalSize)
         {
-            double cellWidth = finalSize.Width / Columns;
-            double cellHeight = finalSize.Height / Rows;
+            double cellWidth = finalSize.Width/Columns;
+            double cellHeight = finalSize.Height/Rows;
 
             foreach (UIElement child in this.Children)
             {
-                if (this.Children.IndexOf(child) < Columns * Rows)
+                if (this.Children.IndexOf(child) < Columns*Rows)
                 {
-                    int xCount = this.Children.IndexOf(child) % Columns;
-                    int yCount = this.Children.IndexOf(child) / Columns;
-                    Rect childBounds = new Rect(xCount * cellWidth, yCount * cellHeight, cellWidth, cellHeight);
+                    int xCount = this.Children.IndexOf(child)%Columns;
+                    int yCount = this.Children.IndexOf(child)/Columns;
+                    Rect childBounds = new Rect(xCount*cellWidth, yCount*cellHeight, cellWidth, cellHeight);
                     child.Arrange(childBounds);
                 }
             }
@@ -1189,21 +1188,21 @@ namespace WPFPeony.Surveil.Custom
             FieldInfo fi = value.GetType().GetField(value.ToString());
 
             DescriptionAttribute[] attributes =
-                (DescriptionAttribute[])fi.GetCustomAttributes(
-                typeof(DescriptionAttribute),
-                false);
+                (DescriptionAttribute[]) fi.GetCustomAttributes(
+                    typeof (DescriptionAttribute),
+                    false);
 
             if (attributes.Length > 0)
                 return attributes[0].Description;
             return value.ToString();
         }
 
-        void SetLayoutCount()
+        private void SetLayoutCount()
         {
-            if (Enum.IsDefined(typeof(ViewLayoutTypes), LayoutType))
+            if (Enum.IsDefined(typeof (ViewLayoutTypes), LayoutType))
             {
                 if (LayoutType == ViewLayoutTypes.More)
-                    LayoutCount = Rows * Columns;
+                    LayoutCount = Rows*Columns;
                 else
                 {
                     string count = GetEnumDescription(LayoutType);

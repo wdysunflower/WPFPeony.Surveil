@@ -11,6 +11,6 @@
     <Brush x:Key="TileBackBrush">#272727</Brush>
 
     <Grid x:Key="TestGrid"
-          Background="#272727"></Grid>
+          Background="#272727" />
 </ResourceDictionary>
 

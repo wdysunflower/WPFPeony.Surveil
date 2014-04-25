@@ -15,9 +15,9 @@ namespace WPFPeony.Surveil.Custom
         #region  Overlay
 
         public static readonly DependencyProperty OverlayProperty = DependencyProperty.Register("Overlay",
-            typeof(object), typeof(AirspaceDecorator), new PropertyMetadata((d, e) =>
+            typeof (object), typeof (AirspaceDecorator), new PropertyMetadata((d, e) =>
             {
-                AirspaceDecorator decorator = (AirspaceDecorator)d;
+                AirspaceDecorator decorator = (AirspaceDecorator) d;
                 decorator.OnOverlayChanged(e.OldValue, e.NewValue);
             }));
 
@@ -29,7 +29,7 @@ namespace WPFPeony.Surveil.Custom
             get { return GetValue(OverlayProperty); }
             set { SetValue(OverlayProperty, value); }
         }
-                
+
         protected virtual void OnOverlayChanged(object oldContent, object newContent)
         {
             if (_airspaceAdorner != null)
@@ -41,17 +41,16 @@ namespace WPFPeony.Surveil.Custom
         #region IsOpen
 
         public static readonly DependencyProperty IsOpenProperty = DependencyProperty.Register("IsOpen",
-            typeof(bool), typeof(AirspaceDecorator),
-              new PropertyMetadata((d, e) => d.Dispatcher.BeginInvoke((Action)delegate
-              {
-                  var decorator = (AirspaceDecorator)d;
-                  decorator.IsOpenChanged();
-
-              }, System.Windows.Threading.DispatcherPriority.Render)));
+            typeof (bool), typeof (AirspaceDecorator),
+            new PropertyMetadata((d, e) => d.Dispatcher.BeginInvoke((Action) delegate
+            {
+                var decorator = (AirspaceDecorator) d;
+                decorator.IsOpenChanged();
+            }, System.Windows.Threading.DispatcherPriority.Render)));
 
         public bool IsOpen
         {
-            get { return (bool)GetValue(IsOpenProperty); }
+            get { return (bool) GetValue(IsOpenProperty); }
             set { SetValue(IsOpenProperty, value); }
         }
 
@@ -61,7 +60,7 @@ namespace WPFPeony.Surveil.Custom
             {
                 //得到装饰层容器，为层赋值
                 AdornerLayer adornerLayer = AdornerLayer.GetAdornerLayer(this);
-                _airspaceAdorner = new AirspaceAdorner(this, adornerLayer) { WinChild = Overlay };
+                _airspaceAdorner = new AirspaceAdorner(this, adornerLayer) {WinChild = Overlay};
             }
             else
             {

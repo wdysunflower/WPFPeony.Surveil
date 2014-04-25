@@ -1,35 +1,31 @@
 ﻿// ***********************************************************************
-// <copyright file="UIPageBase.cs" company="Peony">
+// <copyright file="DataHelper.cs" company="Peony">
 //     Copyright (c) Peony. All rights reserved.
 // </copyright>
 // ***********************************************************************
 // Assembly         : WPFPeony.Surveil.ViewModel
 // Author           : wdysunflower
-// Created          : 04-17-2014
+// Created          : 04-24-2014
 //
 // Last Modified By : wdysunflower
-// Last Modified On : 04-17-2014
+// Last Modified On : 04-24-2014
 // ***********************************************************************
-
-using DevExpress.Xpf.Mvvm;
 
 namespace WPFPeony.Surveil.ViewModel
 {
     /// <summary>
-    /// Class UIPageBase.
+    /// Enum EntityUIModes
     /// </summary>
-    public class UIPageBase : BindableBase
+    public enum EntityUIModes
     {
         /// <summary>
-        /// 模块名称
+        /// The TreeView
         /// </summary>
-        /// <value>The name of the module.</value>
-        public string ModuleName { get; protected set; }
+        TreeView,
 
         /// <summary>
-        /// Gets or sets the relative object.
+        /// The tree ListView
         /// </summary>
-        /// <value>The relative object.</value>
-        public object RelativeObject { get; protected set; }
+        TreeListView
     }
 }

@@ -1,4 +1,17 @@
-﻿using System;
+﻿// ***********************************************************************
+// <copyright file="ErrorMsgCom.cs" company="Peony">
+//     Copyright (c) Peony. All rights reserved.
+// </copyright>
+// ***********************************************************************
+// Assembly         : WPFPeony.Surveil.Util
+// Author           : wdysunflower
+// Created          : 04-17-2014
+//
+// Last Modified By : wdysunflower
+// Last Modified On : 04-18-2014
+// ***********************************************************************
+
+using System;
 
 namespace WPFPeony.Surveil.Util
 {

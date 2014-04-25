@@ -1,0 +1,19 @@
+﻿ <UserControl x:Class="WPFPeony.Surveil.RecordDataCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid">
+
+    <Grid>
+        <TreeView BorderThickness="0">
+            <TreeViewItem Header="服务器"
+                          IsExpanded="True">
+                <TreeViewItem Header="Camera1">
+                    <TreeViewItem Header="Record_123456789" />
+                    <TreeViewItem Header="Record_123456789" />
+                    <TreeViewItem Header="Record_123456789" />
+                    <TreeViewItem Header="Record_123456789" />
+                </TreeViewItem>
+            </TreeViewItem>
+        </TreeView>
+    </Grid>
+</UserControl>

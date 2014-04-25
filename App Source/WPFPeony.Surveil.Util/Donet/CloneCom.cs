@@ -1,4 +1,17 @@
-﻿using System;
+﻿// ***********************************************************************
+// <copyright file="CloneCom.cs" company="Peony">
+//     Copyright (c) Peony. All rights reserved.
+// </copyright>
+// ***********************************************************************
+// Assembly         : WPFPeony.Surveil.Util
+// Author           : wdysunflower
+// Created          : 04-17-2014
+//
+// Last Modified By : wdysunflower
+// Last Modified On : 04-17-2014
+// ***********************************************************************
+
+using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -9,20 +22,26 @@ namespace WPFPeony.Surveil.Util
     /// </summary>
     public class CloneCom
     {
+        /// <summary>
+        /// Deeps the copy.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj">The object.</param>
+        /// <returns>T.</returns>
         public static T DeepCopy<T>(T obj)
         {
             try
             {
-                object retval;
+                object returnValue;
                 using (var ms = new MemoryStream())
                 {
                     var bf = new BinaryFormatter();
                     bf.Serialize(ms, obj);
                     ms.Seek(0, SeekOrigin.Begin);
-                    retval = bf.Deserialize(ms);
+                    returnValue = bf.Deserialize(ms);
                     ms.Close();
                 }
-                return (T) retval;
+                return (T) returnValue;
             }
             catch (Exception ex)
             {

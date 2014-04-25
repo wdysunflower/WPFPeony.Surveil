@@ -3,11 +3,11 @@
 namespace WPFPeony.Surveil
 {
     /// <summary>
-    /// EntityTreeCtl.xaml 的交互逻辑
+    /// RecordDataCtl.xaml 的交互逻辑
     /// </summary>
-    public partial class EntityTreeCtl : UserControl
+    public partial class RecordDataCtl : UserControl
     {
-        public EntityTreeCtl()
+        public RecordDataCtl()
         {
             InitializeComponent();
         }

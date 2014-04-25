@@ -2,12 +2,44 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
-             xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui">
+             xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
+             xmlns:surveil="clr-namespace:WPFPeony.Surveil">
 
-    <dxlc:LayoutControl DataContext="{Binding SurveilOper}">
-        <dxwui:PageAdornerControl Header="录像审看"
-                                  VerticalAlignment="Top"
-                                  BackCommand="{Binding ModuleExitCmd}" />
+    <dxlc:LayoutControl Orientation="Vertical"
+                        DataContext="{Binding SurveilOper}">
+        <dxlc:LayoutGroup VerticalAlignment="Top">
+            <dxwui:PageAdornerControl HorizontalAlignment="Left"
+                                      Header="录像审看"
+                                      BackCommand="{Binding ModuleExitCmd}" />
 
+            <surveil:ToolBarCtl HorizontalAlignment="Right"
+                                Margin="0,0,100,0"
+                                DataContext="{Binding PlayBackOper}" />
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup Orientation="Horizontal"
+                          DataContext="{Binding PlayBackOper}">
+            <dxlc:LayoutControl HorizontalAlignment="Left"
+                                AllowHorizontalSizing="True"
+                                Orientation="Vertical"
+                                MinWidth="250"
+                                MaxWidth="500">
+                <dxlc:LayoutGroup View="GroupBox"
+                                  Header="录像资源"
+                                  Orientation="Vertical">
+                    <surveil:RecordSearchCtl VerticalAlignment="Top" />
+                    <surveil:RecordDataCtl />
+                </dxlc:LayoutGroup>
+            </dxlc:LayoutControl>
+
+            <dxlc:LayoutGroup View="GroupBox"
+                              Header="预览视图">
+                <surveil:VideoViewCtl />
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup VerticalAlignment="Bottom">
+            <TextBlock Text="当前状态：在线" />
+        </dxlc:LayoutGroup>
     </dxlc:LayoutControl>
 </UserControl>

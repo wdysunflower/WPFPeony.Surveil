@@ -25,17 +25,17 @@ namespace WPFPeony.Surveil.Custom
 
         protected override Size ArrangeOverride(Size finalSize)
         {
-            double angle = Math.PI * 2 / this.Children.Count;
-            double a = finalSize.Width / 2;
-            double b = finalSize.Height / 2;
+            double angle = Math.PI*2/this.Children.Count;
+            double a = finalSize.Width/2;
+            double b = finalSize.Height/2;
 
             foreach (UIElement child in this.Children)
             {
-                double childangle = this.Children.IndexOf(child) * angle;
+                double childangle = this.Children.IndexOf(child)*angle;
 
                 Point point = new Point();
-                point.X = a * Math.Cos(childangle) + a - child.DesiredSize.Width / 2;
-                point.Y = b * Math.Sin(childangle) + b - child.DesiredSize.Height / 2;
+                point.X = a*Math.Cos(childangle) + a - child.DesiredSize.Width/2;
+                point.Y = b*Math.Sin(childangle) + b - child.DesiredSize.Height/2;
 
                 Rect rectChild = new Rect(point, child.DesiredSize);
                 child.Arrange(rectChild);

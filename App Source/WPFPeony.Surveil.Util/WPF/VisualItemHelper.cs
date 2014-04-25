@@ -1,4 +1,17 @@
-﻿using System.Windows;
+﻿// ***********************************************************************
+// <copyright file="VisualItemHelper.cs" company="Peony">
+//     Copyright (c) Peony. All rights reserved.
+// </copyright>
+// ***********************************************************************
+// Assembly         : WPFPeony.Surveil.Util
+// Author           : wdysunflower
+// Created          : 04-17-2014
+//
+// Last Modified By : wdysunflower
+// Last Modified On : 04-17-2014
+// ***********************************************************************
+
+using System.Windows;
 using System.Windows.Media;
 
 namespace WPFPeony.Surveil.Util
@@ -20,11 +33,11 @@ namespace WPFPeony.Surveil.Util
             {
                 DependencyObject child = VisualTreeHelper.GetChild(obj, i);
                 if (child is T)
-                    return (T)child;
+                    return (T) child;
 
-                var childofChild = FindFirstVisualChild<T>(child);
-                if (childofChild != null)
-                    return childofChild;
+                var childOfChild = FindFirstVisualChild<T>(child);
+                if (childOfChild != null)
+                    return childOfChild;
             }
             return null;
         }
@@ -42,11 +55,11 @@ namespace WPFPeony.Surveil.Util
             {
                 DependencyObject child = VisualTreeHelper.GetChild(obj, i);
                 if (child is T && child.GetValue(FrameworkElement.NameProperty).ToString() == name)
-                    return (T)child;
+                    return (T) child;
 
-                var childofChild = FindFirstVisualChild<T>(child, name);
-                if (childofChild != null)
-                    return childofChild;
+                var childOfChild = FindFirstVisualChild<T>(child, name);
+                if (childOfChild != null)
+                    return childOfChild;
             }
             return null;
         }
@@ -99,7 +112,7 @@ namespace WPFPeony.Surveil.Util
         /// 根据控件类型，获取视觉树上的父控件
         /// </summary>
         /// <param name="obj">子控件</param>
-        /// <param name="parent"> </param>
+        /// <param name="parent">The parent.</param>
         /// <returns>符合条件的父控件</returns>
         public static bool EqualParentElement(DependencyObject obj, DependencyObject parent)
         {

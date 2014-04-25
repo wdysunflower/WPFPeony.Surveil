@@ -44,6 +44,8 @@
     <Reference Include="DevExpress.Xpf.Controls.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Core.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Docking.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Grid.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Grid.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Layout.v13.2.Core, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.LayoutControl.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.NavBar.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -68,11 +70,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataView\EntityTreeCtl.xaml.cs">
-      <DependentUpon>EntityTreeCtl.xaml</DependentUpon>
+    <Compile Include="DataView\CameraDataCtl.xaml.cs">
+      <DependentUpon>CameraDataCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ComView\WaitScreen.xaml.cs">
       <DependentUpon>WaitScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataView\RecordDataCtl.xaml.cs">
+      <DependentUpon>RecordDataCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataView\RecordSearchCtl.xaml.cs">
+      <DependentUpon>RecordSearchCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataView\ToolBarCtl.xaml.cs">
       <DependentUpon>ToolBarCtl.xaml</DependentUpon>
@@ -129,7 +137,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="DataView\EntityTreeCtl.xaml">
+    <Page Include="DataView\CameraDataCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,6 +148,14 @@
     <Page Include="ComView\LoginScreen.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataView\RecordDataCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataView\RecordSearchCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DataView\ToolBarCtl.xaml">
       <SubType>Designer</SubType>

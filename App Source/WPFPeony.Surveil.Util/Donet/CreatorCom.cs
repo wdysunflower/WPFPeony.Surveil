@@ -1,4 +1,17 @@
-﻿using System;
+﻿// ***********************************************************************
+// <copyright file="CreatorCom.cs" company="Peony">
+//     Copyright (c) Peony. All rights reserved.
+// </copyright>
+// ***********************************************************************
+// Assembly         : WPFPeony.Surveil.Util
+// Author           : wdysunflower
+// Created          : 04-17-2014
+//
+// Last Modified By : wdysunflower
+// Last Modified On : 04-17-2014
+// ***********************************************************************
+
+using System;
 using System.Diagnostics;
 using System.Reflection;
 
@@ -6,7 +19,7 @@ namespace WPFPeony.Surveil.Util
 {
     /// <summary>
     /// 反射创建对象
-    /// </summary>  
+    /// </summary>
     public static class CreatorCom
     {
         #region 反射创建对象
@@ -16,26 +29,27 @@ namespace WPFPeony.Surveil.Util
         /// <summary>
         /// 根据程序集、类及命名空间反射创建对象
         /// </summary>
-        /// <param name="assemlyName">程序集名称</param>
+        /// <param name="assemblyName">程序集名称</param>
         /// <param name="namespaceName">命名空间</param>
         /// <param name="className">类名称</param>
         /// <returns>对象</returns>
-        public static object CreateObject(string assemlyName, string namespaceName, string className)
+        public static object CreateObject(string assemblyName, string namespaceName, string className)
         {
-            if (String.IsNullOrEmpty(assemlyName) || String.IsNullOrEmpty(className))
+            if (String.IsNullOrEmpty(assemblyName) || String.IsNullOrEmpty(className))
                 return null;
 
-            string objname = string.Format("{0}.{1}", assemlyName == namespaceName ? assemlyName : namespaceName, className);
+            string objName = string.Format("{0}.{1}", assemblyName == namespaceName ? assemblyName : namespaceName,
+                className);
 
             //利用反射创建操作对象           
             object obj = null;
             try
             {
-                var type = Type.GetType(string.Format("{0},{1}", objname, assemlyName));
+                var type = Type.GetType(string.Format("{0},{1}", objName, assemblyName));
                 if (type != null)
                 {
                     Assembly assembly = Assembly.GetAssembly(type);
-                    obj = assembly.CreateInstance(objname);
+                    obj = assembly.CreateInstance(objName);
                 }
             }
             catch (Exception ex)
@@ -48,12 +62,12 @@ namespace WPFPeony.Surveil.Util
         /// <summary>
         /// 根据程序集、类反射创建对象(默认程序集名称与命名空间名称相同)
         /// </summary>
-        /// <param name="assemlyName">程序集名称</param>
+        /// <param name="assemblyName">程序集名称</param>
         /// <param name="className">类名称</param>
         /// <returns>对象</returns>
-        public static object CreateObject(string assemlyName, string className)
+        public static object CreateObject(string assemblyName, string className)
         {
-            return CreateObject(assemlyName, assemlyName, className);
+            return CreateObject(assemblyName, assemblyName, className);
         }
 
         #endregion
@@ -63,28 +77,29 @@ namespace WPFPeony.Surveil.Util
         /// <summary>
         /// 根据程序集、类、命名空间及所需参数反射创建对象
         /// </summary>
-        /// <param name="assemlyName">程序集名称</param>
+        /// <param name="assemblyName">程序集名称</param>
         /// <param name="namespaceName">命名空间</param>
         /// <param name="className">类名称</param>
         /// <param name="parameters">对象所需参数</param>
         /// <returns>对象</returns>
-        public static object CreateObjectByParam(string assemlyName, string namespaceName, string className,
-                                                 object[] parameters)
+        public static object CreateObjectByParam(string assemblyName, string namespaceName, string className,
+            object[] parameters)
         {
-            if (String.IsNullOrEmpty(assemlyName) || String.IsNullOrEmpty(className))
+            if (String.IsNullOrEmpty(assemblyName) || String.IsNullOrEmpty(className))
                 return null;
 
-            string objname = string.Format("{0}.{1}", assemlyName == namespaceName ? assemlyName : namespaceName, className);
+            string objName = string.Format("{0}.{1}", assemblyName == namespaceName ? assemblyName : namespaceName,
+                className);
 
             //利用反射创建操作对象           
             object obj = null;
             try
             {
-                Type type = Type.GetType(string.Format("{0},{1}", objname, assemlyName));
+                Type type = Type.GetType(string.Format("{0},{1}", objName, assemblyName));
                 if (type != null)
                 {
                     Assembly assembly = Assembly.GetAssembly(type);
-                    obj = assembly.CreateInstance(objname, true, BindingFlags.Default, null, parameters, null, null);
+                    obj = assembly.CreateInstance(objName, true, BindingFlags.Default, null, parameters, null, null);
                 }
             }
             catch (Exception ex)
@@ -97,13 +112,13 @@ namespace WPFPeony.Surveil.Util
         /// <summary>
         /// 根据程序集、类、命名空间及所需参数反射创建对象(默认程序集名称与命名空间名称相同)
         /// </summary>
-        /// <param name="assemlyName">程序集名称</param>
+        /// <param name="assemblyName">程序集名称</param>
         /// <param name="className">类名称</param>
         /// <param name="parameters">对象所需参数</param>
         /// <returns>对象</returns>
-        public static object CreateObjectByParam(string assemlyName, string className, object[] parameters)
+        public static object CreateObjectByParam(string assemblyName, string className, object[] parameters)
         {
-            return CreateObjectByParam(assemlyName, assemlyName, className, parameters);
+            return CreateObjectByParam(assemblyName, assemblyName, className, parameters);
         }
 
         #endregion
@@ -115,25 +130,25 @@ namespace WPFPeony.Surveil.Util
         /// <summary>
         /// 获取指定信息对应的类型
         /// </summary>
-        /// <param name="assemlyName">程序集名称</param>
+        /// <param name="assemblyName">程序集名称</param>
         /// <param name="namespaceName">命名空间</param>
         /// <param name="className">类名称</param>
-        /// <returns></returns>
-        public static Type GetObjType(string assemlyName, string namespaceName, string className)
+        /// <returns>Type.</returns>
+        public static Type GetObjType(string assemblyName, string namespaceName, string className)
         {
-            var obj = CreateObject(assemlyName, namespaceName, className);
+            var obj = CreateObject(assemblyName, namespaceName, className);
             return obj != null ? obj.GetType() : null;
         }
 
         /// <summary>
         /// 获取指定信息对应的类型(默认程序集名称与命名空间名称相同)
         /// </summary>
-        /// <param name="assemlyName">程序集名称</param>
+        /// <param name="assemblyName">程序集名称</param>
         /// <param name="className">类名称</param>
-        /// <returns></returns>
-        public static Type GetObjType(string assemlyName, string className)
+        /// <returns>Type.</returns>
+        public static Type GetObjType(string assemblyName, string className)
         {
-            return GetObjType(assemlyName, assemlyName, className);
+            return GetObjType(assemblyName, assemblyName, className);
         }
 
         #endregion

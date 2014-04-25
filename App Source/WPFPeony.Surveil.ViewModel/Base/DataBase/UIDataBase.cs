@@ -1,4 +1,17 @@
-﻿using System;
+﻿// ***********************************************************************
+// <copyright file="UIDataBase.cs" company="Peony">
+//     Copyright (c) Peony. All rights reserved.
+// </copyright>
+// ***********************************************************************
+// Assembly         : WPFPeony.Surveil.ViewModel
+// Author           : wdysunflower
+// Created          : 04-18-2014
+//
+// Last Modified By : wdysunflower
+// Last Modified On : 04-24-2014
+// ***********************************************************************
+
+using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,11 +23,20 @@ using WPFPeony.Surveil.Util;
 
 namespace WPFPeony.Surveil.ViewModel
 {
+    /// <summary>
+    /// Class UIDataBase.
+    /// </summary>
     public class UIDataBase : BindableBase
     {
-        public string ControlHandle { get; set; }
+        #region 数据
 
+        /// <summary>
+        /// Gets or sets the relation data.
+        /// </summary>
+        /// <value>The relation data.</value>
         public object RelationData { get; set; }
+
+        #endregion
 
         #region 界面展现
 
@@ -23,15 +45,20 @@ namespace WPFPeony.Surveil.ViewModel
         /// <summary>
         /// 显示名称
         /// </summary>
-        [NonSerialized]
-        private string _controlName;
+        [NonSerialized] private string _controlName;
+
+        /// <summary>
+        /// Gets or sets the name of the control.
+        /// </summary>
+        /// <value>The name of the control.</value>
         [XmlIgnore]
         public string ControlName
         {
             get
             {
-                return !String.IsNullOrEmpty(_controlNameKey) ?
-                    ResourceCom.GetString(_controlNameKey) : _controlName;
+                return !String.IsNullOrEmpty(_controlNameKey)
+                    ? ResourceCom.GetString(_controlNameKey)
+                    : _controlName;
             }
             set
             {
@@ -40,8 +67,15 @@ namespace WPFPeony.Surveil.ViewModel
             }
         }
 
-        [NonSerialized]
-        private string _controlNameKey;
+        /// <summary>
+        /// The _control name key
+        /// </summary>
+        [NonSerialized] private string _controlNameKey;
+
+        /// <summary>
+        /// Gets or sets the control name key.
+        /// </summary>
+        /// <value>The control name key.</value>
         [XmlIgnore]
         public string ControlNameKey
         {
@@ -49,8 +83,15 @@ namespace WPFPeony.Surveil.ViewModel
             set { _controlNameKey = value; }
         }
 
-        [NonSerialized]
-        private string _controlNameTempKey;
+        /// <summary>
+        /// The _control name temporary key
+        /// </summary>
+        [NonSerialized] private string _controlNameTempKey;
+
+        /// <summary>
+        /// Gets or sets the control name temporary key.
+        /// </summary>
+        /// <value>The control name temporary key.</value>
         [XmlIgnore]
         public string ControlNameTempKey
         {
@@ -69,15 +110,20 @@ namespace WPFPeony.Surveil.ViewModel
         /// <summary>
         /// 图片
         /// </summary>
-        [NonSerialized]
-        private ImageSource _controlImage;
+        [NonSerialized] private ImageSource _controlImage;
+
+        /// <summary>
+        /// Gets or sets the control image.
+        /// </summary>
+        /// <value>The control image.</value>
         [XmlIgnore]
         public ImageSource ControlImage
         {
             get
             {
-                return !String.IsNullOrEmpty(_controlImageKey) ?
-                    ResourceCom.GetImageSource(_controlImageKey) : _controlImage;
+                return !String.IsNullOrEmpty(_controlImageKey)
+                    ? ResourceCom.GetImageSource(_controlImageKey)
+                    : _controlImage;
             }
             set
             {
@@ -86,8 +132,15 @@ namespace WPFPeony.Surveil.ViewModel
             }
         }
 
-        [NonSerialized]
-        private string _controlImageKey;
+        /// <summary>
+        /// The _control image key
+        /// </summary>
+        [NonSerialized] private string _controlImageKey;
+
+        /// <summary>
+        /// Gets or sets the control image key.
+        /// </summary>
+        /// <value>The control image key.</value>
         [XmlIgnore]
         public string ControlImageKey
         {
@@ -100,17 +153,22 @@ namespace WPFPeony.Surveil.ViewModel
         #region ControlView
 
         /// <summary>
-        /// 图片
+        /// 展现
         /// </summary>
-        [NonSerialized]
-        private Viewbox _controlView;
+        [NonSerialized] private Viewbox _controlView;
+
+        /// <summary>
+        /// Gets or sets the control view.
+        /// </summary>
+        /// <value>The control view.</value>
         [XmlIgnore]
         public Viewbox ControlView
         {
             get
             {
-                return !String.IsNullOrEmpty(_controlViewKey) ?
-                    ResourceCom.GetViewbox(_controlViewKey) : _controlView;
+                return !String.IsNullOrEmpty(_controlViewKey)
+                    ? ResourceCom.GetViewbox(_controlViewKey)
+                    : _controlView;
             }
             set
             {
@@ -119,8 +177,15 @@ namespace WPFPeony.Surveil.ViewModel
             }
         }
 
-        [NonSerialized]
-        private string _controlViewKey;
+        /// <summary>
+        /// The _control view key
+        /// </summary>
+        [NonSerialized] private string _controlViewKey;
+
+        /// <summary>
+        /// Gets or sets the control view key.
+        /// </summary>
+        /// <value>The control view key.</value>
         [XmlIgnore]
         public string ControlViewKey
         {
@@ -135,15 +200,20 @@ namespace WPFPeony.Surveil.ViewModel
         /// <summary>
         /// 显示标签
         /// </summary>
-        [NonSerialized]
-        private string _controlToolTip;
+        [NonSerialized] private string _controlToolTip;
+
+        /// <summary>
+        /// Gets or sets the control tool tip.
+        /// </summary>
+        /// <value>The control tool tip.</value>
         [XmlIgnore]
         public string ControlToolTip
         {
             get
             {
-                return !String.IsNullOrEmpty(_controlToolTipKey) ?
-                    ResourceCom.GetString(_controlToolTipKey) : _controlToolTip;
+                return !String.IsNullOrEmpty(_controlToolTipKey)
+                    ? ResourceCom.GetString(_controlToolTipKey)
+                    : _controlToolTip;
             }
             set
             {
@@ -152,8 +222,15 @@ namespace WPFPeony.Surveil.ViewModel
             }
         }
 
-        [NonSerialized]
-        private string _controlToolTipKey;
+        /// <summary>
+        /// The _control tool tip key
+        /// </summary>
+        [NonSerialized] private string _controlToolTipKey;
+
+        /// <summary>
+        /// Gets or sets the control tool tip key.
+        /// </summary>
+        /// <value>The control tool tip key.</value>
         [XmlIgnore]
         public string ControlToolTipKey
         {
@@ -161,8 +238,15 @@ namespace WPFPeony.Surveil.ViewModel
             set { _controlToolTipKey = value; }
         }
 
-        [NonSerialized]
-        private string _controlToolTipTempKey;
+        /// <summary>
+        /// The _control tool tip temporary key
+        /// </summary>
+        [NonSerialized] private string _controlToolTipTempKey;
+
+        /// <summary>
+        /// Gets or sets the control tool tip temporary key.
+        /// </summary>
+        /// <value>The control tool tip temporary key.</value>
         [XmlIgnore]
         public string ControlToolTipTempKey
         {
@@ -181,8 +265,12 @@ namespace WPFPeony.Surveil.ViewModel
         /// <summary>
         /// 右键菜单数据
         /// </summary>
-        [NonSerialized]
-        private ObservableCollection<BindableBase> _contextMenuData;
+        [NonSerialized] private ObservableCollection<BindableBase> _contextMenuData;
+
+        /// <summary>
+        /// Gets or sets the context menu data.
+        /// </summary>
+        /// <value>The context menu data.</value>
         [XmlIgnore]
         public ObservableCollection<BindableBase> ContextMenuData
         {
@@ -195,11 +283,16 @@ namespace WPFPeony.Surveil.ViewModel
         #endregion
 
         #region 界面控制
+
         /// <summary>
         /// 显示属性
         /// </summary>
-        [NonSerialized]
-        private Visibility _controlVis;
+        [NonSerialized] private Visibility _controlVis;
+
+        /// <summary>
+        /// Gets or sets the control vis.
+        /// </summary>
+        /// <value>The control vis.</value>
         [XmlIgnore]
         public Visibility ControlVis
         {
@@ -210,8 +303,12 @@ namespace WPFPeony.Surveil.ViewModel
         /// <summary>
         /// 边界间距
         /// </summary>
-        [NonSerialized]
-        private Thickness _margin;
+        [NonSerialized] private Thickness _margin;
+
+        /// <summary>
+        /// Gets or sets the margin.
+        /// </summary>
+        /// <value>The margin.</value>
         [XmlIgnore]
         public Thickness Margin
         {
@@ -222,8 +319,12 @@ namespace WPFPeony.Surveil.ViewModel
         /// <summary>
         /// 是否可用（当前项）
         /// </summary>
-        [NonSerialized]
-        private bool _isEnabled = true;
+        [NonSerialized] private bool _isEnabled = true;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is enabled.
+        /// </summary>
+        /// <value><c>true</c> if this instance is enabled; otherwise, <c>false</c>.</value>
         [XmlIgnore]
         public bool IsEnabled
         {
@@ -234,8 +335,12 @@ namespace WPFPeony.Surveil.ViewModel
         /// <summary>
         /// 是否被选中（当前项）
         /// </summary>
-        [NonSerialized]
-        private bool _isSelected;
+        [NonSerialized] private bool _isSelected;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is selected.
+        /// </summary>
+        /// <value><c>true</c> if this instance is selected; otherwise, <c>false</c>.</value>
         [XmlIgnore]
         public bool IsSelected
         {
@@ -243,7 +348,14 @@ namespace WPFPeony.Surveil.ViewModel
             set { SetProperty(ref _isSelected, value, () => IsSelected, OnIsSelectedChanged); }
         }
 
+        /// <summary>
+        /// Occurs when [is selected changed].
+        /// </summary>
         public event Action<object> IsSelectedChanged;
+
+        /// <summary>
+        /// Called when [is selected changed].
+        /// </summary>
         protected virtual void OnIsSelectedChanged()
         {
             if (IsSelectedChanged != null)
@@ -253,8 +365,12 @@ namespace WPFPeony.Surveil.ViewModel
         /// <summary>
         /// 是否选择
         /// </summary>
-        [NonSerialized]
-        private bool _isChecked;
+        [NonSerialized] private bool _isChecked;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is checked.
+        /// </summary>
+        /// <value><c>true</c> if this instance is checked; otherwise, <c>false</c>.</value>
         [XmlIgnore]
         public bool IsChecked
         {
@@ -262,7 +378,14 @@ namespace WPFPeony.Surveil.ViewModel
             set { SetProperty(ref _isChecked, value, () => IsChecked, OnIsCheckedChanged); }
         }
 
+        /// <summary>
+        /// Occurs when [is checked changed].
+        /// </summary>
         public event EventHandler IsCheckedChanged;
+
+        /// <summary>
+        /// Called when [is checked changed].
+        /// </summary>
         protected virtual void OnIsCheckedChanged()
         {
             if (IsChecked)
@@ -291,8 +414,12 @@ namespace WPFPeony.Surveil.ViewModel
         /// <summary>
         /// 命令
         /// </summary>
-        [NonSerialized]
-        private ICommand _controlCmd;
+        [NonSerialized] private ICommand _controlCmd;
+
+        /// <summary>
+        /// Gets or sets the control command.
+        /// </summary>
+        /// <value>The control command.</value>
         [XmlIgnore]
         public ICommand ControlCmd
         {

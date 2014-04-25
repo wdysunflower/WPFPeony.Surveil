@@ -1,4 +1,17 @@
-﻿using System;
+﻿// ***********************************************************************
+// <copyright file="SerializeCom.cs" company="Peony">
+//     Copyright (c) Peony. All rights reserved.
+// </copyright>
+// ***********************************************************************
+// Assembly         : WPFPeony.Surveil.Util
+// Author           : wdysunflower
+// Created          : 04-17-2014
+//
+// Last Modified By : wdysunflower
+// Last Modified On : 04-17-2014
+// ***********************************************************************
+
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization.Json;
@@ -174,7 +187,13 @@ namespace WPFPeony.Surveil.Util
 
         #region Json 字符串
 
-        public static string JsonSerialize(object source, Type type)
+        /// <summary>
+        /// Jsons the serialize.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="type">The type.</param>
+        /// <returns>System.String.</returns>
+        public static string JsonsSerialize(object source, Type type)
         {
             try
             {
@@ -192,7 +211,13 @@ namespace WPFPeony.Surveil.Util
             }
         }
 
-        public static object JsonDeSerialize(string source, Type type)
+        /// <summary>
+        /// Jsons the de serialize.
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="type">The type.</param>
+        /// <returns>System.Object.</returns>
+        public static object JsonsDeSerialize(string source, Type type)
         {
             try
             {

@@ -1,4 +1,17 @@
-﻿using System.Collections.Generic;
+﻿// ***********************************************************************
+// <copyright file="DirectoryCom.cs" company="Peony">
+//     Copyright (c) Peony. All rights reserved.
+// </copyright>
+// ***********************************************************************
+// Assembly         : WPFPeony.Surveil.Util
+// Author           : wdysunflower
+// Created          : 04-17-2014
+//
+// Last Modified By : wdysunflower
+// Last Modified On : 04-17-2014
+// ***********************************************************************
+
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -14,25 +27,25 @@ namespace WPFPeony.Surveil.Util
         /// <summary>
         /// 获取指定路径下不重复的文件名
         /// </summary>
-        /// <param name="filepath">路径</param>
+        /// <param name="filePath">路径</param>
         /// <param name="filename">基本文件名</param>
         /// <returns>不重复的文件名</returns>
-        public static string GetFreeFilePath(string filepath, string filename)
+        public static string GetFreeFilePath(string filePath, string filename)
         {
-            int picturecount = 0;
+            int pictureCount = 0;
 
-            string picturpath = string.Format("{0}\\{1}{2}", filepath, filename, picturecount);
+            string picturePath = string.Format("{0}\\{1}{2}", filePath, filename, pictureCount);
 
-            if (!Directory.Exists(filepath))
-                Directory.CreateDirectory(filepath);
+            if (!Directory.Exists(filePath))
+                Directory.CreateDirectory(filePath);
 
-            while (FileNameExists(filepath, picturpath))
+            while (FileNameExists(filePath, picturePath))
             {
-                picturecount++;
-                picturpath = string.Format("{0}\\{1}{2}", filepath, filename, picturecount);
+                pictureCount++;
+                picturePath = string.Format("{0}\\{1}{2}", filePath, filename, pictureCount);
             }
 
-            return picturpath;
+            return picturePath;
         }
 
         /// <summary>

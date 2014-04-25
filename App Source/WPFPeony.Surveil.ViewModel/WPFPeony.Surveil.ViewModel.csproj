@@ -48,8 +48,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\DataBase\ComplexData.cs" />
     <Compile Include="Base\UIBase\UIViewNameHelper.cs" />
+    <Compile Include="Data\DataBase.cs" />
+    <Compile Include="Data\CameraOperator.cs" />
+    <Compile Include="Data\DataHelper.cs" />
     <Compile Include="Navigation\LoginOperator.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Navigation\SurveilOperator.cs" />

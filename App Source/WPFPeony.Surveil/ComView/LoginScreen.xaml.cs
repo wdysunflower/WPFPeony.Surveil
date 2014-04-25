@@ -15,9 +15,8 @@ namespace WPFPeony.Surveil
             DataContextChanged += LoginScreen_DataContextChanged;
         }
 
-        void LoginScreen_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void LoginScreen_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-           
         }
     }
 }

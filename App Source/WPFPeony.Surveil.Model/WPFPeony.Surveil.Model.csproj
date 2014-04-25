@@ -73,6 +73,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\MDataBase.cs" />
+    <Compile Include="Data\MDataAssist.cs" />
+    <Compile Include="ExtendData\MCamera.cs" />
+    <Compile Include="ExtendData\MRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

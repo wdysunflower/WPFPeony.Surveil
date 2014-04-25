@@ -27,7 +27,7 @@ namespace WPFPeony.Surveil.Custom
             InitData();
         }
 
-        void InitData()
+        private void InitData()
         {
             //呈现内容的窗体
             _contentWindow = new Window
@@ -73,7 +73,7 @@ namespace WPFPeony.Surveil.Custom
 
         #endregion
 
-        void Win32Decorator_Loaded(object sender, RoutedEventArgs e)
+        private void Win32Decorator_Loaded(object sender, RoutedEventArgs e)
         {
             _parentWindow = GetParentWindow(this);
             _contentWindow.Owner = _parentWindow;
@@ -82,7 +82,7 @@ namespace WPFPeony.Surveil.Custom
             _contentWindow.Show();
         }
 
-        void ParentLayoutUpdated(object sender, EventArgs e)
+        private void ParentLayoutUpdated(object sender, EventArgs e)
         {
             SetChildWinProperty();
         }
