@@ -31,7 +31,7 @@ namespace WPFPeony.Surveil.ViewModel
         /// <value>The camera oper.</value>
         public CameraOperator CameraOper
         {
-            get { return _cameraOper ?? (_cameraOper = new CameraOperator(EntityUIModes.TreeView)); }
+            get { return _cameraOper ?? (_cameraOper = new CameraOperator(DataUIModes.TreeView)); }
         }
 
         /// <summary>

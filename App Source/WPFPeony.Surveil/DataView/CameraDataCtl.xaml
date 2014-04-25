@@ -5,7 +5,7 @@
 
     <UserControl.Resources>
         <HierarchicalDataTemplate x:Key="CameraTemplate"
-                                  ItemsSource="{Binding CameraCol}">
+                                  ItemsSource="{Binding ChildCol}">
             <ContentControl Content="{Binding ControlName}" />
         </HierarchicalDataTemplate>
     </UserControl.Resources>

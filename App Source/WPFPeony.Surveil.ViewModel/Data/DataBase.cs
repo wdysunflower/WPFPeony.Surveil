@@ -75,10 +75,10 @@ namespace WPFPeony.Surveil.ViewModel
         private ObservableCollection<DataBase> _childCol;
 
         /// <summary>
-        /// Gets the entity col.
+        /// Gets the child col.
         /// </summary>
-        /// <value>The entity col.</value>
-        public ObservableCollection<DataBase> EntityCol
+        /// <value>The child col.</value>
+        public ObservableCollection<DataBase> ChildCol
         {
             get { return _childCol ?? (_childCol = new ObservableCollection<DataBase>()); }
         }

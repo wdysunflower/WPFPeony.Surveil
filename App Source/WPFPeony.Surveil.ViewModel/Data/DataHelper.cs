@@ -14,9 +14,9 @@
 namespace WPFPeony.Surveil.ViewModel
 {
     /// <summary>
-    /// Enum EntityUIModes
+    /// Enum DataUIModes
     /// </summary>
-    public enum EntityUIModes
+    public enum DataUIModes
     {
         /// <summary>
         /// The TreeView

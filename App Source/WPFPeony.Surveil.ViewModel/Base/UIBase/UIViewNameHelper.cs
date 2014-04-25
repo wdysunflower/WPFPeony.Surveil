@@ -52,6 +52,5 @@ namespace WPFPeony.Surveil.ViewModel
         /// The test view
         /// </summary>
         public const string TestView = "TestView";
-
     }
 }

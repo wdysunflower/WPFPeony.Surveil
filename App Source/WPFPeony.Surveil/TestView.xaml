@@ -33,9 +33,7 @@
 
             <!--<custom:Win32Hwnd x:Name="MyWin32Hwnd" />-->
             <WindowsFormsHost>
-                <forms:Panel BackColor="#FF0000">
-                    
-                </forms:Panel>
+                <forms:Panel BackColor="#FF0000" />
             </WindowsFormsHost>
         </custom:AirspaceDecorator>
     </Grid>

@@ -26,23 +26,23 @@ namespace WPFPeony.Surveil.ViewModel
         #region Member
 
         /// <summary>
-        /// The _entity assist
+        /// The _data assist
         /// </summary>
-        private readonly MDataAssist _entityAssist;
+        private readonly MDataAssist _dataAssist;
 
         /// <summary>
-        /// Gets the entity assist.
+        /// Gets the data assist.
         /// </summary>
-        /// <value>The entity assist.</value>
-        public MDataAssist EntityAssist
+        /// <value>The data assist.</value>
+        public MDataAssist DataAssist
         {
-            get { return _entityAssist; }
+            get { return _dataAssist; }
         }
 
         /// <summary>
-        /// The _entity UI mode
+        /// The _data UI mode
         /// </summary>
-        private readonly EntityUIModes _entityUIMode;
+        private readonly DataUIModes _dataUIMode;
 
         /// <summary>
         /// The _camera dic
@@ -55,10 +55,10 @@ namespace WPFPeony.Surveil.ViewModel
         /// Initializes a new instance of the <see cref="CameraOperator"/> class.
         /// </summary>
         /// <param name="mode">The mode.</param>
-        public CameraOperator(EntityUIModes mode)
+        public CameraOperator(DataUIModes mode)
         {
-            _entityUIMode = mode;
-            _entityAssist = new MDataAssist();
+            _dataUIMode = mode;
+            _dataAssist = new MDataAssist();
             _cameraDic = new Dictionary<string, DataBase>();
             ListEntities();
         }
@@ -102,13 +102,13 @@ namespace WPFPeony.Surveil.ViewModel
         /// </summary>
         public void ListEntities()
         {
-            switch (_entityUIMode)
+            switch (_dataUIMode)
             {
-                case EntityUIModes.TreeView:
-                    CameraCol = CreateEntityColWithTree(_entityAssist.DataDic.Values);
+                case DataUIModes.TreeView:
+                    CameraCol = CreateCameraColWithTree(_dataAssist.DataDic.Values);
                     break;
-                case EntityUIModes.TreeListView:
-                    CameraCol = CreateEntityColWithTreeList(_entityAssist.DataDic.Values);
+                case DataUIModes.TreeListView:
+                    CameraCol = CreateCameraColWithTreeList(_dataAssist.DataDic.Values);
                     break;
             }
 
@@ -118,51 +118,51 @@ namespace WPFPeony.Surveil.ViewModel
         }
 
         /// <summary>
-        /// Creates the entity col with tree.
+        /// Creates the camera col with tree.
         /// </summary>
-        /// <param name="entities">The entities.</param>
+        /// <param name="dataBases">The entities.</param>
         /// <returns>ObservableCollection&lt;DataBase&gt;.</returns>
-        public ObservableCollection<DataBase> CreateEntityColWithTree(IEnumerable<MDataBase> entities)
+        public ObservableCollection<DataBase> CreateCameraColWithTree(IEnumerable<MDataBase> dataBases)
         {
             _cameraDic.Clear();
 
-            var entityCol = new ObservableCollection<DataBase>();
-            foreach (MDataBase entity in entities)
+            var cameraCol = new ObservableCollection<DataBase>();
+            foreach (MDataBase data in dataBases)
             {
-                var vmEntity = new DataBase(entity) {IsExpanded = true};
-                if (string.IsNullOrEmpty(entity.ParentID) || entity.ParentID == "0")
-                    entityCol.Add(vmEntity);
+                var vmData = new DataBase(data) {IsExpanded = true};
+                if (string.IsNullOrEmpty(data.ParentID) || data.ParentID == "0")
+                    cameraCol.Add(vmData);
                 else
                 {
-                    DataBase parentEntity;
-                    if (_cameraDic.TryGetValue(entity.ParentID, out parentEntity))
-                        parentEntity.EntityCol.Add(vmEntity);
+                    DataBase parentData;
+                    if (_cameraDic.TryGetValue(data.ParentID, out parentData))
+                        parentData.ChildCol.Add(vmData);
                 }
 
-                _cameraDic.Add(entity.ID, vmEntity);
+                _cameraDic.Add(data.ID, vmData);
             }
 
-            return entityCol;
+            return cameraCol;
         }
 
         /// <summary>
-        /// Creates the entity col with tree list.
+        /// Creates the camera col with tree list.
         /// </summary>
-        /// <param name="entities">The entities.</param>
+        /// <param name="dataBases">The entities.</param>
         /// <returns>ObservableCollection&lt;DataBase&gt;.</returns>
-        public ObservableCollection<DataBase> CreateEntityColWithTreeList(IEnumerable<MDataBase> entities)
+        public ObservableCollection<DataBase> CreateCameraColWithTreeList(IEnumerable<MDataBase> dataBases)
         {
             _cameraDic.Clear();
 
-            var entityCol = new ObservableCollection<DataBase>();
-            foreach (MDataBase entity in entities)
+            var cameraCol = new ObservableCollection<DataBase>();
+            foreach (MDataBase data in dataBases)
             {
-                var vmEntity = new DataBase(entity) {IsExpanded = true};
-                entityCol.Add(vmEntity);
-                _cameraDic.Add(entity.ID, vmEntity);
+                var vmData = new DataBase(data) {IsExpanded = true};
+                cameraCol.Add(vmData);
+                _cameraDic.Add(data.ID, vmData);
             }
 
-            return entityCol;
+            return cameraCol;
         }
     }
 }
