@@ -57,7 +57,7 @@ namespace WPFPeony.Surveil.ViewModel
         /// </summary>
         protected override void OnViewLoaded()
         {
-            Navigate(UIViewNameHelper.LoginView);
+            Navigate(UIViewNameHelper.TestView);
         }
 
         #endregion

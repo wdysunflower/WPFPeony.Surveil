@@ -47,5 +47,11 @@ namespace WPFPeony.Surveil.ViewModel
         /// The play back view
         /// </summary>
         public const string PlayBackView = "PlayBackView";
+
+        /// <summary>
+        /// The test view
+        /// </summary>
+        public const string TestView = "TestView";
+
     }
 }
