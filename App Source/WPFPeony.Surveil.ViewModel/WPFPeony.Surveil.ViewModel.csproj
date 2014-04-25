@@ -62,8 +62,9 @@
     <Compile Include="Base\DataBase\UIBindBase.cs" />
     <Compile Include="Base\UIBase\UINavigateBase.cs" />
     <Compile Include="Navigation\RealTimeManage.cs" />
-    <Compile Include="VideoPreview\VideoViewManage.cs" />
-    <Compile Include="VideoPreview\VideoWinOperator.cs" />
+    <Compile Include="VideoPreview\Object\VideoWin.cs" />
+    <Compile Include="VideoPreview\Operator\VideoViewOperator.cs" />
+    <Compile Include="VideoPreview\Operator\VideoWinOperator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PlayBack\" />

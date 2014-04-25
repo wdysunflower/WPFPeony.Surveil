@@ -39,17 +39,17 @@ namespace WPFPeony.Surveil.ViewModel
         }
 
         /// <summary>
-        /// The _video view
+        /// The _video view oper
         /// </summary>
-        private VideoViewManage _videoView;
+        private VideoViewOperator _videoViewOper;
 
         /// <summary>
-        /// Gets the video view.
+        /// Gets the video view oper.
         /// </summary>
-        /// <value>The video view.</value>
-        public VideoViewManage VideoView
+        /// <value>The video view oper.</value>
+        public VideoViewOperator VideoViewOper
         {
-            get { return _videoView ?? (_videoView = new VideoViewManage()); }
+            get { return _videoViewOper ?? (_videoViewOper = new VideoViewOperator()); }
         }
 
         #endregion

@@ -19,7 +19,7 @@ namespace WPFPeony.Surveil.ViewModel
     /// <summary>
     /// Class OperatorBase.
     /// </summary>
-    public class OperatorBase : BindableBase
+    public abstract class OperatorBase : BindableBase
     {
         /// <summary>
         /// The _observable col
@@ -35,5 +35,14 @@ namespace WPFPeony.Surveil.ViewModel
             get { return _observableCol ?? (_observableCol = new ObservableCollection<UIBindBase>()); }
             set { SetProperty(ref _observableCol, value, () => ObservableCol); }
         }
+
+        protected UIBindBase _currentData;
+        public UIBindBase CurrentData
+        {
+            get { return _currentData; }
+            set { SetProperty(ref _currentData, value, () => CurrentData, OnCurrentDataChanged); }
+        }
+
+        protected virtual void OnCurrentDataChanged() { }
     }
 }

@@ -5,18 +5,13 @@
              xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm">
 
     <Border HorizontalAlignment="Right"
-            DataContext="{Binding VideoView}">
+            DataContext="{Binding VideoViewOper}">
         <dx:RadioButtonList x:Name="ButtonList"
                             BorderThickness="0"
-                            SelectedIndex="1"
-                            ItemsSource="{Binding LayoutTypeCol}"
+                            ItemsSource="{Binding ObservableCol}"
+                            SelectedItem="{Binding CurrentData}"
                             ItemsPanel="{StaticResource StackPanelTemplate}">
-            <dxmvvm:Interaction.Triggers>
-                <dxmvvm:EventToCommand EventName="SelectionChanged"
-                                       Command="{Binding SelectionChangedCmd}"
-                                       CommandParameter="{Binding SelectedItem,ElementName=ButtonList}" />
-            </dxmvvm:Interaction.Triggers>
-            <dx:RadioButtonList.ItemTemplate>
+           <dx:RadioButtonList.ItemTemplate>
                 <DataTemplate>
                     <ContentControl Content="{Binding ControlView}"
                                     ToolTip="{Binding ControlToolTip}" />
