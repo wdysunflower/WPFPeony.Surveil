@@ -25,6 +25,11 @@ namespace WPFPeony.Surveil.ViewModel
         /// </summary>
         private readonly MDataBase _dataBase;
 
+        public MDataBase DataItem
+        {
+            get { return _dataBase; }
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="DataBase" /> class.
         /// </summary>

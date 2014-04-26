@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
              xmlns:surveil="clr-namespace:WPFPeony.Surveil"
-             xmlns:viewModel="clr-namespace:WPFPeony.Surveil.ViewModel;assembly=WPFPeony.Surveil.ViewModel">
+             xmlns:viewModel="clr-namespace:WPFPeony.Surveil.ViewModel;assembly=WPFPeony.Surveil.ViewModel"
+             xmlns:model="clr-namespace:WPFPeony.Surveil.Model;assembly=WPFPeony.Surveil.Model">
 
     <UserControl.Resources>
         <HierarchicalDataTemplate x:Key="CameraTemplate"
@@ -34,7 +35,15 @@
             <ListBox ItemsSource="{Binding CameraList}"
                      DisplayMemberPath="ControlName"
                      Visibility="{Binding ListMode.RelationData,Converter={StaticResource EqualToVis},
-                ConverterParameter={x:Static viewModel:DataUIModes.List}}" />
+                ConverterParameter={x:Static viewModel:DataUIModes.List}}">
+                <!--<ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Visibility"
+                                Value="{Binding DataItem.DataTyoe,Converter={StaticResource EqualToVis},
+                            ConverterParameter={x:Static model:DataTypes.Camera}}" />
+                    </Style>
+                </ListBox.ItemContainerStyle>-->
+            </ListBox>
         </Grid>
 
     </dxlc:LayoutControl>

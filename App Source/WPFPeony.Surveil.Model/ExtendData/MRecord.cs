@@ -18,6 +18,11 @@ namespace WPFPeony.Surveil.Model
     /// </summary>
     public class MRecord : MDataBase
     {
+        public MRecord()
+        {
+            DataType = DataTypes.Record;
+        }
+
         /// <summary>
         /// Gets or sets the filename.
         /// </summary>

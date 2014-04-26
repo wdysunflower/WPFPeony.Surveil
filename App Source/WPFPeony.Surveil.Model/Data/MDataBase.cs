@@ -14,6 +14,29 @@
 namespace WPFPeony.Surveil.Model
 {
     /// <summary>
+    /// Enum DataTypes
+    /// </summary>
+    public enum DataTypes
+    {
+        /// <summary>
+        /// The root
+        /// </summary>
+        Root,
+        /// <summary>
+        /// The group
+        /// </summary>
+        Group,
+        /// <summary>
+        /// The camera
+        /// </summary>
+        Camera,
+        /// <summary>
+        /// The record
+        /// </summary>
+        Record
+    }
+
+    /// <summary>
     /// Class MDataBase.
     /// </summary>
     public class MDataBase
@@ -35,5 +58,11 @@ namespace WPFPeony.Surveil.Model
         /// </summary>
         /// <value>The name.</value>
         public string Name { get; set; }
+
+        /// <summary>
+        /// 数据类型
+        /// </summary>
+        /// <value>The type of the data.</value>
+        public DataTypes DataType { get; set; }
     }
 }

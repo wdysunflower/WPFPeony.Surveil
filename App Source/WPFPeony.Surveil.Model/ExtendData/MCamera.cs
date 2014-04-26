@@ -18,6 +18,11 @@ namespace WPFPeony.Surveil.Model
     /// </summary>
     public class MCamera : MDataBase
     {
+        public MCamera()
+        {
+            DataType = DataTypes.Camera;
+        }
+
         /// <summary>
         ///     Gets or sets the host.
         /// </summary>

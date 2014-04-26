@@ -27,7 +27,7 @@ namespace WPFPeony.Surveil.ViewModel
         /// <summary>
         /// The _data assist
         /// </summary>
-        private readonly MDataAssist _dataAssist;
+        private MDataAssist _dataAssist;
 
         /// <summary>
         /// Gets the data assist.
@@ -46,7 +46,7 @@ namespace WPFPeony.Surveil.ViewModel
         /// <summary>
         /// The _camera dic
         /// </summary>
-        private readonly Dictionary<string, DataBase> _cameraDic;
+        private Dictionary<string, DataBase> _cameraDic;
 
         #endregion
 
@@ -57,8 +57,6 @@ namespace WPFPeony.Surveil.ViewModel
         public CameraOperator(DataUIModes mode)
         {
             _dataUIMode = mode;
-            _dataAssist = new MDataAssist();
-            _cameraDic = new Dictionary<string, DataBase>();
             InitialData();
         }
 
@@ -93,13 +91,14 @@ namespace WPFPeony.Surveil.ViewModel
             set { SetProperty(ref _listMode, value, () => ListMode); }
         }
 
+        private List<DataBase> _cameraList;
         /// <summary>
         /// Gets the camera list.
         /// </summary>
         /// <value>The camera list.</value>
-        public Dictionary<string, DataBase>.ValueCollection CameraList
+        public List<DataBase> CameraList
         {
-            get { return _cameraDic.Values; }
+            get { return _cameraList; }
         }
 
         /// <summary>
@@ -122,7 +121,7 @@ namespace WPFPeony.Surveil.ViewModel
         public void InitialData()
         {
             _listModes = new List<UIBindBase>();
-            UIBindBase dataBase1 = new UIBindBase {ControlViewKey = "Pine-Tree", RelationData = DataUIModes.TreeView};
+            UIBindBase dataBase1 = new UIBindBase { ControlViewKey = "Pine-Tree", RelationData = DataUIModes.TreeView };
             UIBindBase dataBase2 = new UIBindBase
             {
                 ControlViewKey = "Table-of-Contents",
@@ -131,6 +130,11 @@ namespace WPFPeony.Surveil.ViewModel
             _listModes.Add(dataBase1);
             _listModes.Add(dataBase2);
             _listMode = dataBase1;
+            
+            _dataAssist = new MDataAssist();
+            _cameraDic = new Dictionary<string, DataBase>();
+            _cameraList = new List<DataBase>();
+
             ListEntities();
         }
 
@@ -149,7 +153,7 @@ namespace WPFPeony.Surveil.ViewModel
                     break;
             }
 
-            var col = new ObservableCollection<UIBindBase> {ObservableCol[0]};
+            var col = new ObservableCollection<UIBindBase> { ObservableCol[0] };
             _selectedCol = col;
         }
 
@@ -165,7 +169,7 @@ namespace WPFPeony.Surveil.ViewModel
             var cameraCol = new ObservableCollection<UIBindBase>();
             foreach (MDataBase data in dataBases)
             {
-                var vmData = new DataBase(data) {IsExpanded = true};
+                var vmData = new DataBase(data) { IsExpanded = true };
                 if (string.IsNullOrEmpty(data.ParentID) || data.ParentID == "0")
                     cameraCol.Add(vmData);
                 else
@@ -176,6 +180,8 @@ namespace WPFPeony.Surveil.ViewModel
                 }
 
                 _cameraDic.Add(data.ID, vmData);
+                if (data.DataType == DataTypes.Camera)
+                    _cameraList.Add(vmData);
             }
 
             return cameraCol;
@@ -193,7 +199,7 @@ namespace WPFPeony.Surveil.ViewModel
             var cameraCol = new ObservableCollection<UIBindBase>();
             foreach (MDataBase data in dataBases)
             {
-                var vmData = new DataBase(data) {IsExpanded = true};
+                var vmData = new DataBase(data) { IsExpanded = true };
                 cameraCol.Add(vmData);
                 _cameraDic.Add(data.ID, vmData);
             }

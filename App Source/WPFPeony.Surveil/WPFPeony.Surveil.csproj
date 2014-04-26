@@ -224,6 +224,10 @@
       <Project>{396bc550-ae8b-4ed3-8596-86c1a02feb3f}</Project>
       <Name>WPFPeony.Surveil.Custom</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WPFPeony.Surveil.Model\WPFPeony.Surveil.Model.csproj">
+      <Project>{b9ef03ff-d05b-4fd4-a8e9-f90d819cb1dc}</Project>
+      <Name>WPFPeony.Surveil.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WPFPeony.Surveil.Resource\WPFPeony.Surveil.Resource.csproj">
       <Project>{78075f49-9a33-4cf3-8580-c8474b2e0569}</Project>
       <Name>WPFPeony.Surveil.Resource</Name>
