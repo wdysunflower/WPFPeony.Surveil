@@ -1,4 +1,7 @@
-﻿using DevExpress.Xpf.Core;
+﻿using System;
+using System.Windows.Forms;
+using DevExpress.Xpf.Core;
+using WPFPeony.Surveil.ViewModel;
 
 namespace WPFPeony.Surveil
 {
@@ -7,6 +10,16 @@ namespace WPFPeony.Surveil
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            base.OnSourceInitialized(e);
+            if (this.DataContext != null)
+            {
+                MainViewModel viewModel = (MainViewModel)DataContext;
+                viewModel.RegisterHotKey();
+            }
         }
     }
 }
