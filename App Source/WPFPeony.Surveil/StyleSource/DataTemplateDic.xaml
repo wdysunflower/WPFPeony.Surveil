@@ -3,6 +3,8 @@
                     xmlns:surveil="clr-namespace:WPFPeony.Surveil"
                     xmlns:custom="clr-namespace:WPFPeony.Surveil.Custom;assembly=WPFPeony.Surveil.Custom">
 
+    <surveil:EqualToVisConverter x:Key="EqualToVis" />
+
     <DataTemplate x:Key="LoginDataTemplate">
         <surveil:LoginScreen />
     </DataTemplate>
@@ -15,4 +17,8 @@
         <StackPanel Orientation="Horizontal" />
     </ItemsPanelTemplate>
 
+    <DataTemplate x:Key="ContentViewTemplate">
+        <ContentControl Content="{Binding ControlView}"
+                        ToolTip="{Binding ControlToolTip}" />
+    </DataTemplate>
 </ResourceDictionary>

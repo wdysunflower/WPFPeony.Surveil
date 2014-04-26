@@ -10,14 +10,8 @@
                             BorderThickness="0"
                             ItemsSource="{Binding ObservableCol}"
                             SelectedItem="{Binding CurrentData}"
-                            ItemsPanel="{StaticResource StackPanelTemplate}">
-           <dx:RadioButtonList.ItemTemplate>
-                <DataTemplate>
-                    <ContentControl Content="{Binding ControlView}"
-                                    ToolTip="{Binding ControlToolTip}" />
-                </DataTemplate>
-            </dx:RadioButtonList.ItemTemplate>
-        </dx:RadioButtonList>
+                            ItemsPanel="{StaticResource StackPanelTemplate}"
+                            ItemTemplate="{StaticResource ContentViewTemplate}" />
     </Border>
 
 </UserControl>

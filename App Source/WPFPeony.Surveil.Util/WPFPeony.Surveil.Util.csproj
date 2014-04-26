@@ -68,6 +68,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
@@ -81,10 +82,11 @@
     <Compile Include="Donet\CloneCom.cs" />
     <Compile Include="Donet\CreatorCom.cs" />
     <Compile Include="Donet\DirectoryCom.cs" />
+    <Compile Include="Win32\HotKey.cs" />
     <Compile Include="Donet\SerializeCom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\SplashScreenService.cs" />
-    <Compile Include="Donet\Win32API.cs" />
+    <Compile Include="Win32\Win32API.cs" />
     <Compile Include="WPF\VisualItemHelper.cs" />
   </ItemGroup>
   <ItemGroup>

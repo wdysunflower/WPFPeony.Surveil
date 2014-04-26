@@ -291,11 +291,11 @@ public class SplashScreenService : ViewServiceBase, ISplashScreenService
     /// Shows the splash screen by data.
     /// </summary>
     /// <param name="documentType">Type of the document.</param>
-    /// <param name="datacontext">The datacontext.</param>
-    public void ShowSplashScreenByData(string documentType, object datacontext)
+    /// <param name="dataContext">The data context.</param>
+    public void ShowSplashScreenByData(string documentType, object dataContext)
     {
         ((ISplashScreenService) this).ShowSplashScreen(documentType);
-        ((SplashScreenData) _splashScreenViewModel).DataContext = datacontext;
+        ((SplashScreenData) _splashScreenViewModel).DataContext = dataContext;
     }
 
     /// <summary>

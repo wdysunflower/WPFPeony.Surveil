@@ -24,11 +24,10 @@
                     <StackPanel>
                         <dx:RadioButtonList ItemsPanel="{StaticResource StackPanelTemplate}"
                                             BorderThickness="0"
-                                            HorizontalAlignment="Right">
-                            <ContentControl Content="{DynamicResource Pine-Tree}"
-                                            Padding="0" />
-                            <ContentControl Content="{DynamicResource Table-of-Contents}" />
-                        </dx:RadioButtonList>
+                                            HorizontalAlignment="Right"
+                                            SelectedItem="{Binding ListMode}"
+                                            ItemsSource="{Binding ListModes}"
+                                            ItemTemplate="{StaticResource ContentViewTemplate}" />
 
                         <ToggleButton Content="{DynamicResource Favorites}"
                                       Padding="0" />
@@ -39,6 +38,6 @@
         </dxe:PopupBaseEdit>
 
 
-        
+
     </dxlc:LayoutControl>
 </UserControl>

@@ -31,11 +31,11 @@ namespace WPFPeony.Surveil.Custom
 
             foreach (UIElement child in this.Children)
             {
-                double childangle = this.Children.IndexOf(child)*angle;
+                double childAngle = this.Children.IndexOf(child)*angle;
 
                 Point point = new Point();
-                point.X = a*Math.Cos(childangle) + a - child.DesiredSize.Width/2;
-                point.Y = b*Math.Sin(childangle) + b - child.DesiredSize.Height/2;
+                point.X = a*Math.Cos(childAngle) + a - child.DesiredSize.Width/2;
+                point.Y = b*Math.Sin(childAngle) + b - child.DesiredSize.Height/2;
 
                 Rect rectChild = new Rect(point, child.DesiredSize);
                 child.Arrange(rectChild);

@@ -59,10 +59,48 @@ namespace WPFPeony.Surveil.ViewModel
             _dataUIMode = mode;
             _dataAssist = new MDataAssist();
             _cameraDic = new Dictionary<string, DataBase>();
-            ListEntities();
+            InitialData();
         }
 
         #region Binding Property
+
+        /// <summary>
+        /// The _list modes
+        /// </summary>
+        private List<UIBindBase> _listModes;
+
+        /// <summary>
+        /// Gets the list modes.
+        /// </summary>
+        /// <value>The list modes.</value>
+        public List<UIBindBase> ListModes
+        {
+            get { return _listModes; }
+        }
+
+        /// <summary>
+        /// The _list mode
+        /// </summary>
+        private UIBindBase _listMode;
+
+        /// <summary>
+        /// Gets or sets the list mode.
+        /// </summary>
+        /// <value>The list mode.</value>
+        public UIBindBase ListMode
+        {
+            get { return _listMode; }
+            set { SetProperty(ref _listMode, value, () => ListMode); }
+        }
+
+        /// <summary>
+        /// Gets the camera list.
+        /// </summary>
+        /// <value>The camera list.</value>
+        public Dictionary<string, DataBase>.ValueCollection CameraList
+        {
+            get { return _cameraDic.Values; }
+        }
 
         /// <summary>
         /// The _selected col
@@ -80,6 +118,21 @@ namespace WPFPeony.Surveil.ViewModel
         }
 
         #endregion
+
+        public void InitialData()
+        {
+            _listModes = new List<UIBindBase>();
+            UIBindBase dataBase1 = new UIBindBase {ControlViewKey = "Pine-Tree", RelationData = DataUIModes.TreeView};
+            UIBindBase dataBase2 = new UIBindBase
+            {
+                ControlViewKey = "Table-of-Contents",
+                RelationData = DataUIModes.List
+            };
+            _listModes.Add(dataBase1);
+            _listModes.Add(dataBase2);
+            _listMode = dataBase1;
+            ListEntities();
+        }
 
         /// <summary>
         /// Lists the entities.

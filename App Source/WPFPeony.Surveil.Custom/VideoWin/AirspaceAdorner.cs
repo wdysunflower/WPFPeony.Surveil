@@ -24,10 +24,10 @@ namespace WPFPeony.Surveil.Custom
             : base(adornedElement)
         {
             _parentLayer = parentLayer;
-            InitData();
+            InitialData();
         }
 
-        private void InitData()
+        private void InitialData()
         {
             //呈现内容的窗体
             _contentWindow = new Window
